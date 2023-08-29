@@ -174,6 +174,7 @@
     ];
   };
 
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -187,6 +188,8 @@
   # allow docker
   virtualisation.docker.enable = true;
 
+
+  # We love virtualisation
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
   
