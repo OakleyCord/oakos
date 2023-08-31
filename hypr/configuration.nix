@@ -29,7 +29,7 @@
       kernelPackages = pkgs.linuxPackages_latest;
       initrd.kernelModules = [ "amdgpu" ];
       kernelModules = [ "amd-pstate" ];
-      kernelParams = [ "amd_pstate=guided" ];
+      kernelParams = [ "amd_pstate=guided" "amdgpu.dcdebugmask=0x10" ];
   };
 
 
