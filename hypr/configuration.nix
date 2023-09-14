@@ -61,7 +61,6 @@
   hardware = {
       opengl.enable = true;
       opengl.driSupport = true;
-      # For 32 bit applications
       opengl.driSupport32Bit = true;
 
   };
@@ -167,12 +166,9 @@
       firefox
       librewolf
       obs-studio
-      # not work :P
       jetbrains.idea-ultimate
       sublime-music
       kitty
-      cargo
-      rustc
       dolphin-emu
       syncthing
       freshfetch
@@ -214,7 +210,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    pkgs.flatpak
+    flatpak
     git
     btop
     keychain
