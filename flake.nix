@@ -21,14 +21,7 @@
   {
 
     nixosConfigurations = {
-      oldBlerm = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
-
-        modules = [
-          ./nixos/configuration.nix
-        ];
-      };
-      hypr = nixpkgs.lib.nixosSystem {
+      blerm = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system; };
 
         modules = [
