@@ -23,5 +23,5 @@ build-job:       # This job runs in the build stage, which runs first.
   stage: build
   image: nixos/nix
   script:
-    - nix-env -iA nixpkgs.nixos-generators gawk
+    - nix-env -iA nixpkgs.nixos-generators nixpkgs.gawk
     - nixos-generate --flake .#blerm -f iso
