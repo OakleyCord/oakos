@@ -40,7 +40,10 @@
          };
       });
       initrd.kernelModules = [ "amdgpu" ];
-      kernelModules = [ "amd-pstate" ];
+      kernelModules = [ "amd-pstate" "v4l2loopback" ];
+      extraModulePackages = with config.boot.kernelPackages; [
+           v4l2loopback
+      ];
       kernelParams = [ "amd_pstate=guided" ];
   };
 
