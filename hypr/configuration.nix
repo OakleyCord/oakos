@@ -179,8 +179,16 @@
       vscode
       mangohud
       thunderbird
+      # i love violating discord tos
+      (pkgs.discord.override {
+        withOpenASAR = true;
+        withVencord = true;
+      })
+
     ];
   };
+
+
 
   
   # Allow unfree packages
