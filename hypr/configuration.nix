@@ -226,6 +226,8 @@
     networkmanagerapplet
     home-manager
     nvtop-amd
+    gradle
+    nixpkgs-fmt
   ];
 
   services.syncthing = {
