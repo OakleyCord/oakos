@@ -154,6 +154,8 @@
   services.tailscale.enable = true;
   programs.zsh.enable = true;
 
+  programs.steam.enable = true;
+
   users.users.oakley = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -171,7 +173,6 @@
       freshfetch
       # brokey :(
       # jellyfin-mpv-shim
-      steam
       mpv
       prismlauncher
       kmail
