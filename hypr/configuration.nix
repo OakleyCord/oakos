@@ -228,6 +228,7 @@
     home-manager
     nvtop-amd
     gradle
+    krita
     nixpkgs-fmt
   ];
 
