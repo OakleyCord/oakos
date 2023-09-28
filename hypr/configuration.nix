@@ -182,7 +182,8 @@
       thunderbird
       # i love violating discord tos
       (pkgs.discord.override {
-        withOpenASAR = true;
+      # asar is broken on 0.30
+#        withOpenASAR = true;
         withVencord = true;
       })
 
