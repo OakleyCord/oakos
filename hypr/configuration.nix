@@ -226,6 +226,7 @@
     keychain
     virt-manager
     unzip
+    wl-clipboard
     pkgs.zsh
     asusctl
     gamescope
