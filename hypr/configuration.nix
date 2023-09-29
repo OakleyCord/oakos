@@ -206,6 +206,9 @@
   };
 
 
+  # we love android
+  virtualisation.waydroid.enable = true;
+
   # allow docker
   virtualisation.docker.enable = true;
 
