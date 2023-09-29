@@ -179,6 +179,7 @@
       kalendar
       vscode
       mangohud
+      gnome.gnome-software
       thunderbird
       # i love violating discord tos
       (pkgs.discord.override {
