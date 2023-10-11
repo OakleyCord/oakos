@@ -28,17 +28,20 @@
       loader.efi.canTouchEfiVariables = true;
       # pin to kernel version because amdgpu bug
       # amdgpu bug which screen glitches out if the resolution is not 2560x1600
-      kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_4.override {
-         argsOverride = rec {
-            src = pkgs.fetchurl {
-               url = "mirror://kernel/linux/kernel/v6.x/linux-${version}.tar.xz";
-               sha256 = "zKkb6Vb+CB+PbacgNM3tlv41pQvkv7fhA+NUqiFZpnQ=";
-            };
-            version = "6.4.12";
-            modDirVersion = "6.4.12";
 
-         };
-      });
+      # fixed in 6.5.6
+      kernelPackages = pkgs.linuxPackages_latest;
+
+      #kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_6_4.override {
+      #   argsOverride = rec {
+      #      src = pkgs.fetchurl {
+      #         url = "mirror://kernel/linux/kernel/v6.x/linux-${version}.tar.xz";
+      #         sha256 = "zKkb6Vb+CB+PbacgNM3tlv41pQvkv7fhA+NUqiFZpnQ=";
+      #      };
+      #      version = "6.4.12";
+      #      modDirVersion = "6.4.12";
+      #   };
+      #});
       initrd.kernelModules = [ "amdgpu" ];
       kernelModules = [ "amd-pstate" "v4l2loopback" ];
       extraModulePackages = with config.boot.kernelPackages; [
@@ -178,10 +181,12 @@
       mpv
       prismlauncher
       kmail
+      lunar-client
       kalendar
       vscode
       mangohud
       gnome.gnome-software
+      monero-gui
       thunderbird
       # i love violating discord tos
       (pkgs.discord.override {
