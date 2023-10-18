@@ -165,7 +165,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "oakley";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
     packages = with pkgs; [
       firefox
       librewolf
@@ -243,7 +243,21 @@
     gradle
     krita
     nixpkgs-fmt
+    eww-wayland
+    swww
+    rofi-wayland
+    dunst
+
+
+
+    rose-pine-gtk-theme
+    #needed for some scripts
+    jq
+    python311
+    socat
   ];
+
+
 
   services.syncthing = {
     enable = true;
