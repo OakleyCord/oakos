@@ -2,13 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      oakley = import ./home.nix;
+    };
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -22,10 +30,10 @@
   hardware.bluetooth.enable = true;
 
   # Bootloader.
-  
+
   boot = {
-      loader.systemd-boot.enable = true;
-      loader.efi.canTouchEfiVariables = true;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
       # pin to kernel version because amdgpu bug
       # amdgpu bug which screen glitches out if the resolution is not 2560x1600
 
@@ -45,18 +53,18 @@
       initrd.kernelModules = [ "amdgpu" ];
       kernelModules = [ "amd-pstate" "v4l2loopback" ];
       extraModulePackages = with config.boot.kernelPackages; [
-           v4l2loopback
+        v4l2loopback
       ];
       kernelParams = [ "amd_pstate=guided" ];
-  };
+    };
 
 
-  
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
 
-  networking = {
-    hostName = "blerm"; # Define your hostname.
+    networking = {
+      hostName = "blerm"; # Define your hostname.
     # don't enable if on kde appearently
     #  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -68,9 +76,9 @@
 
 
   hardware = {
-      opengl.enable = true;
-      opengl.driSupport = true;
-      opengl.driSupport32Bit = true;
+    opengl.enable = true;
+    opengl.driSupport = true;
+    opengl.driSupport32Bit = true;
 
   };
 
@@ -102,15 +110,15 @@
 
 
   services = {
-      xserver.enable = true;
-      xserver.videoDrivers = [ "amdgpu" ];
+    xserver.enable = true;
+    xserver.videoDrivers = [ "amdgpu" ];
 
 
 
       # Asus stuff
       asusd = {
-          enable = true;
-          enableUserService = true;
+        enable = true;
+        enableUserService = true;
       };
       supergfxd.enable = true;
 
@@ -126,16 +134,16 @@
       xserver.desktopManager.plasma5.enable = true;
       # set default for sddm
       xserver.displayManager.defaultSession = "plasmawayland";
-  };
+    };
 
-  xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
-  fonts.fontDir.enable = true;
+    xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
+    fonts.fontDir.enable = true;
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
-  
+
 
 
   # Enable sound with pipewire.
@@ -175,7 +183,6 @@
       kitty
       dolphin-emu
       syncthing
-      freshfetch
       # brokey :(
       # jellyfin-mpv-shim
       mpv
@@ -192,7 +199,7 @@
       (pkgs.discord.override {
       # asar is broken on 0.30
 #        withOpenASAR = true;
-        withVencord = true;
+withVencord = true;
       })
 
     ];
@@ -200,7 +207,7 @@
 
 
 
-  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -221,8 +228,8 @@
   # We love virtualisation
   virtualisation.libvirtd.enable = true;
   programs.dconf.enable = true;
-  
- 
+
+
   environment.systemPackages = with pkgs; [
     neovim
     flatpak
@@ -238,26 +245,28 @@
     tailscale
     lf
     networkmanagerapplet
-    home-manager
     nvtop-amd
     gradle
     krita
     nixpkgs-fmt
+    fastfetch
     eww-wayland
     swww
+    brightnessctl
     rofi-wayland
     dunst
 
 
-
+    (waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    })
+    )
     rose-pine-gtk-theme
     #needed for some scripts
     jq
     python311
     socat
   ];
-
-
 
   services.syncthing = {
     enable = true;

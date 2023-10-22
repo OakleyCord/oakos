@@ -3,9 +3,16 @@
   
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+
   };
 
-  outputs = {self, nixpkgs}:
+  outputs = {self, nixpkgs, ...}@inputs:
   let
     system = "x86_64-linux";
     
@@ -22,10 +29,10 @@
 
     nixosConfigurations = {
       blerm = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
+        specialArgs = { inherit inputs system; };
 
         modules = [
-          ./hypr/configuration.nix
+          ./nixos/configuration.nix
         ];
       };
     };
