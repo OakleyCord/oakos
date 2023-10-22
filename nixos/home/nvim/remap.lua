@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 -- nvim tree
 -- vim.keymap.set("n", "<leader>o", ":NvimTreeFocus<CR>")
 -- vim.keymap.set("n", "<leader>k", ":NvimTreeToggle<CR>")

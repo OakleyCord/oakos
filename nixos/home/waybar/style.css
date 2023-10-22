@@ -1,0 +1,156 @@
+* {
+    color: @text;
+    border:        none;
+    border-radius: 0;
+    font-family:   FiraCode Nerd Font;
+    font-size:     15px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+}
+
+window {
+    background: @base;
+    border-radius: 20px;
+}
+
+tooltip {
+  background: @surface0;
+  border-radius: 20px;
+}
+
+#workspaces {
+    min-height: 30px;
+    margin: 0 5px;
+}
+
+
+#workspaces button {
+    padding:    0 5px;
+
+    border-radius: 20px;
+}
+
+#workspaces button.visible {
+    color:      @blue;
+}
+
+#workspaces button.active {
+    /*
+     * border-top: 3px solid @mauve;
+     */ 
+    border: 2px solid @mauve;
+
+}
+
+#workspaces button.urgent {
+    border: 0px solid @maroon;
+
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery, #cpu, #memory, #tray, #temperature, #clock, #workspaces, #backlight, #pulseaudio, #network  {
+    margin:     4px 5px;
+    padding: 0 10px;
+    min-width:  25px;
+
+    border-radius: 20px;
+    background: @mantle;
+}
+
+
+@keyframes blink {
+    to {
+        border-width: 2px;
+    }
+}
+
+#clock {
+  border-top: solid 1px @mauve;
+  border-bottom: solid 1px @mauve;
+}
+
+
+#battery {
+  color: @green;
+}
+
+
+#battery.warning { 
+   color:       @peach;
+   border: 1px solid @peach;
+}
+
+#battery.critical { 
+    color:      @maroon;
+    border: 0px solid @maroon;
+
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.charging {
+    color:      @green;
+    border: 0px solid @green;
+
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu.warning {
+  color: @peach;
+
+  border: 1px solid @peach;
+}
+
+#cpu.critical {
+  color:      @maroon;
+  border: 0px solid @maroon;
+
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+#temperature.critical {
+  color:      @maroon;
+  border: 0px solid @maroon;
+
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+#tray menu {
+  background: @surface0;
+
+  border-radius: 20px;
+}
+
+#tray > .needs-attention {
+  color:      @maroon;
+  border: 0px solid @maroon;
+  border-radius: 20px;
+
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}

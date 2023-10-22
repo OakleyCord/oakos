@@ -6,7 +6,8 @@
 
 
 # waybar
-waybar &
+# started by nix config
+# waybar &
 
 # widgets
 eww daemon &

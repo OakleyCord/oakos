@@ -4,6 +4,10 @@ vim.opt.linespace = 3
 
 vim.opt.wrap = false
 
+
+
+vim.o.clipboard = 'unnamedplus'
+
 vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 2

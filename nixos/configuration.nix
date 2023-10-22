@@ -14,7 +14,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      oakley = import ./home.nix;
+      oakley = import ./home/home.nix;
     };
   };
 
