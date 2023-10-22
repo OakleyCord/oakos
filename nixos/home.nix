@@ -6,6 +6,10 @@
 
   home.packages = with pkgs; [
     killall
+
+
+    # screnshotting
+    sway-contrib.grimshot
   ];
 
   home.file = {
