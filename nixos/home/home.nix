@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   home.username = "oakley";
@@ -13,6 +13,7 @@
     grim
     slurp
     swappy
+    gnome.nautilus
   ];
 
   home.file = {
@@ -34,9 +35,12 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
 
+    plugins = [
+      inputs.hyprfocus.packages.${pkgs.system}.default
+    ];
 
     extraConfig = ''
       ${builtins.readFile ./hypr/conf/colors.conf}
@@ -156,6 +160,12 @@
     theme.name = "rose-pine";
     cursorTheme.name = "Catppuccin-Macchiato-Dark";
     iconTheme.name = "Papirus-Dark";
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style.name = "adwiada-qt";
   };
 
   programs.zsh = {

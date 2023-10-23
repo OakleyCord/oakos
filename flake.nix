@@ -9,6 +9,10 @@
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprfocus = {
+      url = "github:OakleyCord/hyprfocus";
+      inputs.hyprland.follows = "hyprland";
+    };
 
   };
 
