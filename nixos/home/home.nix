@@ -1,6 +1,12 @@
 { inputs, config, pkgs, ... }:
 
 {
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+    ./waybar/waybar.nix
+  ];
+
+
   home.username = "oakley";
   home.homeDirectory = "/home/oakley";
 
@@ -32,6 +38,9 @@
   };
 
 
+  # nix-color theme
+  colorScheme = inputs.nix-colors.colorSchemes.rose-pine;
+
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -53,102 +62,6 @@
     '';
     # Whether to enable hyprland-session.target on hyprland startup
     systemd.enable = true;
-  };
-
-  programs.waybar = {
-    enable = true;
-    systemd.enable = true;
-    style = ''
-      ${builtins.readFile ./waybar/macchiato.css}
-      ${builtins.readFile ./waybar/style.css} 
-    '';
-    settings = [{
-      layer = "top";
-      margin-top = 5;
-      margin-left = 5;
-      margin-right = 5;
-      modules-left = ["hyprland/workspaces" "backlight" "pulseaudio" "network"];
-      modules-center = ["clock"];
-      modules-right =  ["temperature" "cpu" "memory" "battery" "tray"];
-      "wlr/workspaces" = {
-        format = "{icon}";
-        on-click = "activate";
-        on-scroll-up = "hyprctl dispatch workspace e+1";
-        on-scroll-down = "hyprctl dispatch workspace e-1";
-      };
-      backlight = {
-        device = "amd_backlight";
-        format = "{percent}% {icon} ";
-        format-icons = ["󰃞" "󰃝" "󰃠"];
-        on-scroll-up = "brightnessctl s +5%";
-        on-scroll-down = "brightnessctl s 5%-";
-      };
-      pulseaudio = { 
-        format = "{volume}% {icon} {format_source}";
-        format-bluetooth = "{volume}% {icon}  {format_source}";
-        format-bluetooth-muted = " {icon}  {format_source}";
-        format-muted = "婢 {format_source}";
-        format-source = "{volume}% ";
-        format-source-muted = "";
-        format-icons = {
-          headphone = "";
-          hands-free = "";
-          headset = "";
-          phone = "";
-          portable = "";
-          car = "";
-          default = ["奄" "奔" "墳"];
-        };
-        on-click = "killall pavucontrol || pavucontrol"; 
-      };
-      network = {
-        format = "{ifname}";
-        format-wifi = "{ipaddr} {icon} ";
-        format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-        format-ethernet = "{ipaddr}/{cidr} 󰈀 ";
-        format-disconnected = "󰤮 ";
-        tooltip-format = "{ifname} via {gwaddr} 󰈀 ";
-        tooltip-format-wifi = "{essid} ({signalStrength}%) {icon} ";
-        tooltip-format-ethernet = "{ifname}  ";
-        tooltip-format-disconnected = "Disconnected";
-        max-length = 50;
-        on-click = "nm-connection-editor";
-      };
-      clock = {
-        format = "{:%a, %d. %b  %H:%M}";
-      };
-      temperature = {
-        critical-threshold = 80;
-        format-critical = "{temperatureC}°C ";
-        format = "{temperatureC}°C ";
-      };
-      cpu = {
-        interval = 10;
-        format = "{usage}% ({avg_frequency}GHz)  ";
-        states = {
-          warning = 25;
-          critical = 75;
-        };
-      };
-      memory = {
-        interval = 30;
-        format = "{percentage}% ({used:0.1f}G/{total:0.1f}G)  ";
-      };
-      battery = {
-        bat = "BAT0";
-        states = {
-          warning = 35;
-          critical = 20;
-        };
-        format = "{capacity}% (-{power}W) {icon} ";
-        format-icons = ["" "" "" "" ""];
-        format-charging = "{capacity}% (+{power}W) {icon}  ";
-      };
-      tray = {
-        icon-size = 21;
-        spacing = 10;
-      };
-    }];
   };
 
   programs.git = {

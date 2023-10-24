@@ -18,6 +18,8 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    nix-colors.url = "github:Misterio77/nix-colors";
+
   };
 
   outputs = {self, nixpkgs, ...}@inputs:

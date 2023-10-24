@@ -39,12 +39,12 @@ tooltip {
     /*
      * border-top: 3px solid @mauve;
      */ 
-    border: 2px solid @mauve;
+    border: 2px solid @yellow;
 
 }
 
 #workspaces button.urgent {
-    border: 0px solid @maroon;
+    border: 0px solid @red;
 
     animation-name: blink;
     animation-duration: 0.5s;
@@ -70,8 +70,8 @@ tooltip {
 }
 
 #clock {
-  border-top: solid 1px @mauve;
-  border-bottom: solid 1px @mauve;
+  border-top: solid 1px @yellow;
+  border-bottom: solid 1px @yellow;
 }
 
 
@@ -86,8 +86,8 @@ tooltip {
 }
 
 #battery.critical { 
-    color:      @maroon;
-    border: 0px solid @maroon;
+    color:      @red;
+    border: 0px solid @red;
 
     animation-name: blink;
     animation-duration: 0.5s;
@@ -114,8 +114,8 @@ tooltip {
 }
 
 #cpu.critical {
-  color:      @maroon;
-  border: 0px solid @maroon;
+  color:      @red;
+  border: 0px solid @red;
 
   animation-name: blink;
   animation-duration: 0.5s;
@@ -126,8 +126,8 @@ tooltip {
 
 
 #temperature.critical {
-  color:      @maroon;
-  border: 0px solid @maroon;
+  color:      @red;
+  border: 0px solid @red;
 
   animation-name: blink;
   animation-duration: 0.5s;
@@ -144,8 +144,8 @@ tooltip {
 }
 
 #tray > .needs-attention {
-  color:      @maroon;
-  border: 0px solid @maroon;
+  color:      @red;
+  border: 0px solid @red;
   border-radius: 20px;
 
   animation-name: blink;
