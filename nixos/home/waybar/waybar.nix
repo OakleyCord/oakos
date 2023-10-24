@@ -6,6 +6,7 @@
   programs.waybar = with config.colorScheme.colors; {
     enable = true;
     systemd.enable = true;
+    systemd.target = "hyprland-session.target";
 
     # temp use catpuccin color names for compat
     style = ''
