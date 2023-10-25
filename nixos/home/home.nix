@@ -25,10 +25,6 @@
 
     # audio control
     pavucontrol
-
-
-    # nerdfont
-    nerdfonts
   ];
 
   home.file = {
@@ -50,6 +46,16 @@
   # nix-color theme
   colorScheme = inputs.nix-colors.colorSchemes.rose-pine;
 
+
+  programs.kitty = {
+    enable = true;
+    theme = "Rosé Pine";
+
+    settings = {
+      background_opacity = "0.85";
+      confirm_os_window_close = "0";
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -84,8 +90,13 @@
   gtk = {
     enable = true;
     theme.name = "rose-pine";
+    theme.package = pkgs.rose-pine-gtk-theme;
     cursorTheme.name = "Catppuccin-Macchiato-Dark";
+    cursorTheme.package = pkgs.catppuccin-cursors;
     iconTheme.name = "Papirus-Dark";
+    iconTheme.package = pkgs.papirus-icon-theme;
+    font.name = "source-code-pro";
+    font.package = pkgs.nerdfonts;
   };
 
   qt = {

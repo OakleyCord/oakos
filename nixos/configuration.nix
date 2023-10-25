@@ -31,7 +31,6 @@
     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chmod g+rw /sys/class/backlight/%k/brightness"
   '';
 
-  systemd.user.services.waybar.path = [ pkgs.swayosd ];
   systemd.services.supergfxd.path = [ pkgs.pciutils ];
 
   # bluetooth
