@@ -25,6 +25,12 @@
 
   services.hardware.bolt.enable = true;
 
+  # fix backlight perms
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chmod g+rw /sys/class/backlight/%k/brightness"
+  '';
+
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -173,7 +179,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "oakley";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    extraGroups = [ "networkmanager" "video" "wheel" "docker" "libvirtd" ];
     packages = with pkgs; [
       firefox
       librewolf
@@ -252,7 +258,6 @@ withVencord = true;
     fastfetch
     eww-wayland
     swww
-    brightnessctl
     rofi-wayland
     dunst
 

@@ -47,8 +47,8 @@
         device = "amd_backlight";
         format = "{percent}% {icon} ";
         format-icons = ["󰃞" "󰃝" "󰃠"];
-        on-scroll-up = "brightnessctl s +5%";
-        on-scroll-down = "brightnessctl s 5%-";
+        on-scroll-up = "swayosd --brightness=raise";
+        on-scroll-down = "swayosd --brightness=lower";
       };
       pulseaudio = { 
         format = "{volume}% {icon} {format_source}";
@@ -66,6 +66,8 @@
           car = "";
           default = ["奄" "奔" "墳"];
         };
+        on-scroll-up = "swayosd --output-volume=raise";
+        on-scroll-down = "swayosd --output-volume=lower";
         on-click = "killall pavucontrol || pavucontrol"; 
       };
       network = {

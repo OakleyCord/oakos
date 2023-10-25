@@ -19,7 +19,12 @@
     grim
     slurp
     swappy
+
+    # file manager
     gnome.nautilus
+
+    # audio control
+    pavucontrol
   ];
 
   home.file = {
@@ -63,6 +68,8 @@
     # Whether to enable hyprland-session.target on hyprland startup
     systemd.enable = true;
   };
+
+  services.swayosd.enable = true;
 
   programs.git = {
     enable = true;
