@@ -31,6 +31,8 @@
     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chmod g+rw /sys/class/backlight/%k/brightness"
   '';
 
+  systemd.user.services.waybar.path = [ pkgs.swayosd ];
+  systemd.services.supergfxd.path = [ pkgs.pciutils ];
 
   # bluetooth
   hardware.bluetooth.enable = true;
@@ -205,7 +207,7 @@
       (pkgs.discord.override {
       # asar is broken on 0.30
 #        withOpenASAR = true;
-withVencord = true;
+#withVencord = true;
       })
 
     ];
