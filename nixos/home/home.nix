@@ -25,6 +25,10 @@
 
     # audio control
     pavucontrol
+
+
+    # nerdfont
+    nerdfonts
   ];
 
   home.file = {
