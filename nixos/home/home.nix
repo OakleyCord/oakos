@@ -25,6 +25,7 @@
 
     # audio control
     pavucontrol
+    imv
   ];
 
   home.file = {
@@ -113,6 +114,14 @@
 
   programs.starship = {
     enable = true;
+  };
+
+  xdg.mimeApps.defaultApplications = {
+    "text/plain" = [ "neovim-wrapper.desktop" ];
+    "inode/directory" = [ "dolphin.desktop" ];
+    "image/*" = [ "imv.desktop" ];
+    "video/png" = [ "mpv.desktop" ];
+    "video/*" = [ "mpv.desktop" ];
   };
 
   programs.neovim = 
