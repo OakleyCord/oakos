@@ -171,6 +171,13 @@
         ]));
         config = toLuaFile ./nvim/plugins/treesitter.lua;
       }
+      
+
+      # extra features when working with rust
+      {
+        plugin = rust-tools-nvim;
+        config = toLua "require(\"rust-tools\").setup()";
+      }
 
 
       # code completion
@@ -184,6 +191,13 @@
 
       luasnip
       friendly-snippets
+
+
+      # auto pairing
+      {
+        plugin = nvim-autopairs;
+        config = toLuaFile ./nvim/plugins/autopair.lua;
+      }
 
       # better nix support
       vim-nix
