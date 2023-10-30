@@ -85,10 +85,10 @@
     };
   };
 
-
-  # shut up nm
-  services.gnome-keyring.enable = true;
-
+  services.gnome-keyring = {
+    enable = true;
+    components = [ "pkcs11" "secrets" "ssh" ];
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;

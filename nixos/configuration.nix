@@ -11,6 +11,9 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+
+  security.pam.services.sddm.enableGnomeKeyring = true;
+  services.gnome.gnome-keyring.enable = true;
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -242,7 +245,6 @@
     flatpak
     git
     btop
-    keychain
     virt-manager
     unzip
     wl-clipboard
