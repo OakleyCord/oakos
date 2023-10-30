@@ -26,19 +26,9 @@
     # audio control
     pavucontrol
     imv
-
-
   ];
 
 
-  # rich presence
-  systemd.user.services.arrpc = {
-    Unit.Description = "Discord rich presence";
-    Service = {
-      ExecStart = "${pkgs.arrpc}/bin/arrpc";
-    };
-
-  };
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
@@ -69,6 +59,36 @@
       confirm_os_window_close = "0";
     };
   };
+
+  systemd.user.services = {
+    # rich presence
+    arrpc = {
+      Unit.Description = "Discord rich presence";
+      Service = {
+        ExecStart = "${pkgs.arrpc}/bin/arrpc";
+      };
+    };
+
+    # polkit 
+    polkit-gnome-agent = {
+      Unit.Description = "polkit-gnome-authentication-agent-1";
+      Install.WantedBy = [ "graphical-session.target" ];
+      Unit.Wants = [ "graphical-session.target" ];
+      Unit.After = [ "graphical-session.target" ];
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
+
+
+  # shut up nm
+  services.gnome-keyring.enable = true;
+
 
   wayland.windowManager.hyprland = {
     enable = true;

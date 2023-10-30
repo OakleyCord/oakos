@@ -262,9 +262,6 @@
     rofi-wayland
     dunst
 
-    polkit-kde-agent
-
-
     (waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     })
