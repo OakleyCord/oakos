@@ -204,6 +204,11 @@
       luasnip
       friendly-snippets
 
+      # discord status
+      {
+        plugin = presence-nvim; 
+        config = toLuaFile ./nvim/plugins/presence.lua;
+      }
 
       # auto pairing
       {
