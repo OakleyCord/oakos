@@ -26,7 +26,19 @@
     # audio control
     pavucontrol
     imv
+
+
   ];
+
+
+  # rich presence
+  systemd.user.services.arrpc = {
+    Unit.Description = "Discord rich presence";
+    Service = {
+      ExecStart = "${pkgs.arrpc}/bin/arrpc";
+    };
+
+  };
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
