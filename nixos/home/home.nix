@@ -25,10 +25,17 @@
 
     # audio control
     pavucontrol
+
+    # image viewer
     imv
+
+    # notify-send
+    libnotify
   ];
 
 
+  # bluetooth :]
+  services.blueman-applet.enable = true;
 
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
