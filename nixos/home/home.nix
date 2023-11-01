@@ -106,15 +106,15 @@
       inputs.hyprfocus.packages.${pkgs.system}.default
       # does not work on latest git version of hyprland while hyprfocus only works on latest git version
      # inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-    ];
+   ];
 
-    extraConfig = ''
-      ${builtins.readFile ./hypr/conf/colors.conf}
-      ${builtins.readFile ./hypr/conf/binds.conf}
-      ${builtins.readFile ./hypr/conf/exec.conf}
-      ${builtins.readFile ./hypr/conf/monitors.conf}
-      ${builtins.readFile ./hypr/hyprland.conf}
-    '';
+   extraConfig = ''
+   ${builtins.readFile ./hypr/conf/colors.conf}
+   ${builtins.readFile ./hypr/conf/binds.conf}
+   ${builtins.readFile ./hypr/conf/exec.conf}
+   ${builtins.readFile ./hypr/conf/monitors.conf}
+   ${builtins.readFile ./hypr/hyprland.conf}
+   '';
     # Whether to enable hyprland-session.target on hyprland startup
     systemd.enable = true;
   };
@@ -181,13 +181,13 @@
       luajitPackages.lua-lsp
       # rust-analyzer
       # cargo
-      rnix-lsp
+      nixd
     ];
 
     extraLuaConfig = ''
 
-      ${builtins.readFile ./nvim/options.lua}
-      ${builtins.readFile ./nvim/remap.lua}
+    ${builtins.readFile ./nvim/options.lua}
+    ${builtins.readFile ./nvim/remap.lua}
     '';
     plugins = with pkgs.vimPlugins; [
 
@@ -210,7 +210,7 @@
         ]));
         config = toLuaFile ./nvim/plugins/treesitter.lua;
       }
-      
+
 
       # extra features when working with rust
       {
