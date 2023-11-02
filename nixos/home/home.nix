@@ -162,6 +162,8 @@
     "image/*" = [ "imv.desktop" ];
     "video/png" = [ "mpv.desktop" ];
     "video/*" = [ "mpv.desktop" ];
+    "x-scheme-handler/http" = [ "firefox.desktop" ];
+    "x-scheme-handler/https" = [ "firefox.desktop" ];
   };
 
   programs.neovim = 
