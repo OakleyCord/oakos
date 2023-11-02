@@ -104,6 +104,7 @@
 
     plugins = [
       inputs.hyprfocus.packages.${pkgs.system}.default
+      inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
       # does not work on latest git version of hyprland while hyprfocus only works on latest git version
      # inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
    ];

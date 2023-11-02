@@ -8,6 +8,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-colors.url = "github:Misterio77/nix-colors";
+
+    # hyprland stuffs
     hyprland.url = "github:hyprwm/Hyprland";
     hyprfocus = {
       url = "github:OakleyCord/hyprfocus";
@@ -17,9 +20,10 @@
       url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
-
-    nix-colors.url = "github:Misterio77/nix-colors";
-
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = {self, nixpkgs, ...}@inputs:
