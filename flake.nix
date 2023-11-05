@@ -13,7 +13,7 @@
     # hyprland stuffs
     hyprland.url = "github:hyprwm/Hyprland";
     hyprfocus = {
-      url = "github:OakleyCord/hyprfocus";
+      url = "github:VortexCoyote/hyprfocus";
       inputs.hyprland.follows = "hyprland";
     };
     split-monitor-workspaces = {
