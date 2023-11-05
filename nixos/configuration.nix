@@ -122,6 +122,9 @@
     xwayland.enable = true;
   };
 
+  programs.rog-control-center = {
+    enable = true; 
+  };
 
   services = {
     xserver.enable = true;
@@ -133,6 +136,9 @@
       asusd = {
         enable = true;
         enableUserService = true;
+        fanCurvesConfig = ''
+        ${builtins.readFile ./asus/fan_curves.ron}
+        '';
       };
       supergfxd.enable = true;
 
