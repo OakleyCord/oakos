@@ -8,6 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./modules/asus.nix
+    ./modules/gaming.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -34,7 +36,6 @@
     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chmod g+rw /sys/class/backlight/%k/brightness"
   '';
 
-  systemd.services.supergfxd.path = [ pkgs.pciutils ];
 
   # bluetooth
   hardware.bluetooth = {
@@ -122,27 +123,9 @@
     xwayland.enable = true;
   };
 
-  programs.rog-control-center = {
-    enable = true; 
-  };
-
   services = {
     xserver.enable = true;
     xserver.videoDrivers = [ "amdgpu" ];
-
-
-
-      # Asus stuff
-      asusd = {
-        enable = true;
-        enableUserService = true;
-        fanCurvesConfig = ''
-        ${builtins.readFile ./asus/fan_curves.ron}
-        '';
-      };
-      supergfxd.enable = true;
-
-
 
       # flatpak
       flatpak.enable = true;
@@ -187,26 +170,6 @@
   services.tailscale.enable = true;
   programs.zsh.enable = true;
 
-  # gaming stuffs
-  programs.steam.enable = true;
-  programs.gamemode.enable = true;
-  # fix gamescope on steam
-  nixpkgs.config.packageOverrides = pkgs: {
-    steam = pkgs.steam.override {
-      extraPkgs = pkgs: with pkgs; [
-        xorg.libXcursor
-        xorg.libXi
-        xorg.libXinerama
-        xorg.libXScrnSaver
-        libpng
-        libpulseaudio
-        libvorbis
-        stdenv.cc.cc.lib
-        libkrb5
-        keyutils
-      ];
-    };
-  };
 
 
 
@@ -232,7 +195,6 @@
       lunar-client
       kalendar
       vscode
-      mangohud
       gnome.gnome-software
       monero-gui
       thunderbird
