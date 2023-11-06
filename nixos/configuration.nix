@@ -153,7 +153,7 @@
       xserver.displayManager.sddm.enable = true;
       xserver.desktopManager.plasma5.enable = true;
       # set default for sddm
-      xserver.displayManager.defaultSession = "plasmawayland";
+      xserver.displayManager.defaultSession = "hyprland";
     };
 
     xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
