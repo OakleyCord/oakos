@@ -7,24 +7,15 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+    ../default.nix
     ./hardware-configuration.nix
     ../../modules/asus.nix
     ../../modules/gaming.nix
-    inputs.home-manager.nixosModules.home-manager
   ];
 
 
   security.pam.services.sddm.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      oakley = import ../../home/home.nix;
-    };
-  };
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
 
   networking.firewall.checkReversePath = false; 
 
@@ -97,27 +88,6 @@
 
   };
 
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-
-
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -127,27 +97,22 @@
     xserver.enable = true;
     xserver.videoDrivers = [ "amdgpu" ];
 
-      # flatpak
-      flatpak.enable = true;
+    # flatpak
+    flatpak.enable = true;
+    # Enable the KDE Plasma Desktop Environment.
+    xserver.displayManager.sddm.enable = true;
+    xserver.desktopManager.plasma5.enable = true;
+    # set default for sddm
+    xserver.displayManager.defaultSession = "hyprland";
+  };
 
-
-
-      # Enable the KDE Plasma Desktop Environment.
-      xserver.displayManager.sddm.enable = true;
-      xserver.desktopManager.plasma5.enable = true;
-      # set default for sddm
-      xserver.displayManager.defaultSession = "hyprland";
-    };
-
-    xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
-    fonts.fontDir.enable = true;
+  xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
+  fonts.fontDir.enable = true;
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
-
-
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -168,59 +133,9 @@
 
 
   services.tailscale.enable = true;
-  programs.zsh.enable = true;
-
-
-
-
-  users.users.oakley = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    description = "oakley";
-    extraGroups = [ "networkmanager" "video" "wheel" "docker" "libvirtd" ];
-    packages = with pkgs; [
-      firefox
-      librewolf
-      obs-studio
-      jetbrains.idea-ultimate
-      sublime-music
-      kitty
-      dolphin-emu
-      syncthing
-      # brokey :(
-      # jellyfin-mpv-shim
-      mpv
-      prismlauncher
-      kmail
-      lunar-client
-      kalendar
-      vscode
-      gnome.gnome-software
-      monero-gui
-      thunderbird
-      # i love violating discord tos
-      (pkgs.discord.override {
-      # asar is broken on 0.30
-#        withOpenASAR = true;
-#withVencord = true;
-      })
-
-    ];
-  };
-
-
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
 
   # we love android
   virtualisation.waydroid.enable = true;
@@ -262,7 +177,6 @@
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     })
     )
-    rose-pine-gtk-theme
     #needed for some scripts
     jq
     python311
