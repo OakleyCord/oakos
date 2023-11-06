@@ -8,8 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./modules/asus.nix
-    ./modules/gaming.nix
+    ../../modules/asus.nix
+    ../../modules/gaming.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -19,7 +19,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      oakley = import ./home/home.nix;
+      oakley = import ../../home/home.nix;
     };
   };
 

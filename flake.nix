@@ -46,7 +46,7 @@
         specialArgs = { inherit inputs system; };
 
         modules = [
-          ./nixos/configuration.nix
+          ./sys/blerm/configuration.nix
         ];
       };
     };
