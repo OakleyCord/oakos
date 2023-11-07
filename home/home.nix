@@ -85,6 +85,9 @@
     # rich presence
     arrpc = {
       Unit.Description = "Discord rich presence";
+      Install.WantedBy = [ "graphical-session.target" ];
+      Unit.Wants = [ "graphical-session.target" ];
+      Unit.After = [ "graphical-session.target" ];
       Service = {
         ExecStart = "${pkgs.arrpc}/bin/arrpc";
       };
