@@ -32,6 +32,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    inputs.agenix.packages.${system}.default
+  ];
+
   programs.zsh.enable = true;
   users.users.oakley = {
     isNormalUser = true;

@@ -3,8 +3,22 @@
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.agenix.homeManagerModules.age
     ./waybar/waybar.nix
   ];
+
+
+
+  # fix agenix user service not restarting on switching configs
+  # https://github.com/ryantm/agenix/issues/50#issuecomment-1729135009
+  # MAY CAUSE WEIRD SIDE EFFECTS
+  systemd.user.startServices = "sd-switch";
+
+  # wakatime comfig
+  age.secrets.wakatime-cfg = {
+    file = ./secrets/wakatime.cfg.age;
+    path = ".wakatime.cfg";
+  };
 
 
   home.username = "oakley";

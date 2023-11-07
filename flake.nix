@@ -10,6 +10,15 @@
 
     nix-colors.url = "github:Misterio77/nix-colors";
 
+
+    # secret management
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      # small optimization to save a small amount of space on linux
+      inputs.darwin.follows = "";
+    };
+
     # hyprland stuffs
     hyprland.url = "github:hyprwm/Hyprland";
     hyprfocus = {
