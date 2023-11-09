@@ -23,3 +23,6 @@ vim.g.loaded_netrwPlugin = 1
 
 
 vim.g.cursorhold_updatetime = 100
+
+-- required for nvim notify
+vim.opt.termguicolors = true

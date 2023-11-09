@@ -234,6 +234,14 @@
       }
 
 
+      # cool notifcations on nvim
+      {
+        plugin = nvim-notify;
+        config = toLuaFile ./nvim/plugins/notify.lua;
+      }
+
+
+
       # extra features when working with rust
       {
         plugin = rust-tools-nvim;
