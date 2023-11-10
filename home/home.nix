@@ -45,6 +45,9 @@
 
     # notify-send
     libnotify
+
+    # notifications
+    swaynotificationcenter
   ];
 
 
