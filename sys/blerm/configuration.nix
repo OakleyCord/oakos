@@ -134,8 +134,6 @@
 
   services.tailscale.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # we love android
   virtualisation.waydroid.enable = true;
@@ -146,7 +144,6 @@
 
   # We love virtualisation
   virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true;
 
 
   environment.systemPackages = with pkgs; [

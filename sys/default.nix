@@ -36,6 +36,9 @@
     inputs.agenix.packages.${system}.default
   ];
 
+  # required for alot of stuffs
+  programs.dconf.enable = true;
+
   programs.zsh.enable = true;
   users.users.oakley = {
     isNormalUser = true;
@@ -82,4 +85,6 @@
   };
 
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 }
