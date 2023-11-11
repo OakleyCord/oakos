@@ -36,10 +36,11 @@
       margin-right = 5;
       modules-left = ["hyprland/workspaces" "backlight" "pulseaudio" "network"];
       modules-center = ["clock"];
-      modules-right =  ["temperature" "cpu" "memory" "battery" "tray"];
+      modules-right =  ["temperature" "cpu" "memory" "battery" "custom/notification" "tray"];
       "wlr/workspaces" = {
         format = "{icon}";
         on-click = "activate";
+        all-outputs = false;
         on-scroll-up = "hyprctl dispatch workspace e+1";
         on-scroll-down = "hyprctl dispatch workspace e-1";
       };
@@ -112,6 +113,26 @@
         format = "{capacity}% (-{power}W) {icon} ";
         format-icons = ["" "" "" "" ""];
         format-charging = "{capacity}% (+{power}W) {icon}  ";
+      };
+      "custom/notification" = {
+        tooltip = false;
+        format = "{icon}";
+        format-icons = {
+          notification = "<span foreground='red'><sup></sup></span>";
+          none = "";
+          dnd-notification = "<span foreground='red'><sup></sup></span>";
+          dnd-none = "";
+          inhibited-notification = "<span foreground='red'><sup></sup></span>";
+          inhibited-none = "";
+          dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+          dnd-inhibited-none = "";
+        };
+        return-type = "json";
+        exec-if = "which swaync-client";
+        exec = "swaync-client -swb";
+        on-click = "swaync-client -t -sw";
+        on-click-right = "swaync-client -d -sw";
+        escape = true;
       };
       tray = {
         icon-size = 21;
