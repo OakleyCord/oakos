@@ -10,6 +10,10 @@
 
     nix-colors.url = "github:Misterio77/nix-colors";
 
+    # wsl support
+    nixos-wsl.url = github:nix-community/NixOS-WSL;
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+
 
     # secret management
     agenix = {
@@ -56,6 +60,12 @@
 
         modules = [
           ./sys/blerm/configuration.nix
+        ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system; };
+        modules = [
+          ./sys/wsl/configuration.nix
         ];
       };
     };
