@@ -11,6 +11,7 @@
     ./hardware-configuration.nix
     ../../modules/asus.nix
     ../../modules/gaming.nix
+    ../../modules/virt.nix
   ];
 
 
@@ -134,24 +135,11 @@
 
   services.tailscale.enable = true;
 
-
-  # we love android
-  virtualisation.waydroid.enable = true;
-
-  # allow docker
-  virtualisation.docker.enable = true;
-
-
-  # We love virtualisation
-  virtualisation.libvirtd.enable = true;
-
-
   environment.systemPackages = with pkgs; [
     neovim
     flatpak
     git
     btop
-    virt-manager
     unzip
     wl-clipboard
     pkgs.zsh
