@@ -46,34 +46,6 @@
     description = "oakley";
 
     extraGroups = [ "networkmanager" "video" "wheel" "docker" "libvirtd" ];
-    packages = with pkgs; [
-      firefox
-      librewolf
-      obs-studio
-      jetbrains.idea-ultimate
-      sublime-music
-      kitty
-      dolphin-emu
-      syncthing
-      # brokey :(
-      # jellyfin-mpv-shim
-      mpv
-      prismlauncher
-      kmail
-      lunar-client
-      kalendar
-      vscode
-      gnome.gnome-software
-      monero-gui
-      thunderbird
-      # i love violating discord tos
-      (pkgs.discord.override {
-      # asar is broken on 0.30
-#        withOpenASAR = true;
-#withVencord = true;
-      })
-
-    ];
   };
 
 

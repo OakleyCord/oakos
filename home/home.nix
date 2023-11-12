@@ -48,6 +48,26 @@
 
     # notifications
     swaynotificationcenter
+
+
+    # discord
+    armcord
+
+    firefox
+    obs-studio
+    jetbrains.idea-ultimate
+    sublime-music
+    kitty
+    dolphin-emu
+    # brokey :(
+    # jellyfin-mpv-shim
+    mpv
+    prismlauncher
+    lunar-client
+    vscode
+    gnome.gnome-software
+    monero-gui
+    thunderbird
   ];
 
 
@@ -339,6 +359,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     # fix gamescope on steam
+    # TODO: move to gaming.nix module
     GDK_BACKEND = "wayland,x11";
     QT_QPA_PLATFORM = "wayland;xcb";
     #SDL_VIDEODRIVER = "x11";
@@ -348,6 +369,8 @@
     XDG_SESSION_DESKTOP = "Hyprland";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "22.11"; # Please read the comment before changing.
   # Let Home Manager install and manage itself.
