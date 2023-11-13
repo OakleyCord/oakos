@@ -11,10 +11,17 @@
     nix-colors.url = "github:Misterio77/nix-colors";
 
     # wsl support
-    nixos-wsl.url = github:nix-community/NixOS-WSL;
-    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-wsl = {
+      url = github:nix-community/NixOS-WSL;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
+    pp-to-amd-epp = {
+      url = github:OakleyCord/pp-to-amd-epp;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
+    
     # secret management
     agenix = {
       url = "github:ryantm/agenix";

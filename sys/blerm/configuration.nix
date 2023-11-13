@@ -12,6 +12,7 @@
     ../../modules/asus.nix
     ../../modules/gaming.nix
     ../../modules/virt.nix
+    inputs.pp-to-amd-epp.nixosModules.pp-to-amd-epp
   ];
 
 
@@ -62,10 +63,12 @@
       extraModulePackages = with config.boot.kernelPackages; [
         v4l2loopback
       ];
-      kernelParams = [ "amd_pstate=guided" ];
+      # does not work with pp-to-amd-epp
+      # kernelParams = [ "amd_pstate=guided" ];
     };
 
 
+    services.pp-to-amd-epp.enable = true;
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
