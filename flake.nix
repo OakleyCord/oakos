@@ -31,7 +31,7 @@
     };
 
     # hyprland stuffs
-    hyprland.url = "github:hyprwm/Hyprland?ref=v0.32.0";
+    hyprland.url = "github:hyprwm/Hyprland?ref=v0.32.3";
     hyprfocus = {
       url = "github:VortexCoyote/hyprfocus";
       inputs.hyprland.follows = "hyprland";
