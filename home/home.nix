@@ -86,6 +86,7 @@
     # TODO: maybe just do the folder?
     ".config/hypr/scripts/autostart.sh".source = ./hypr/scripts/autostart.sh;
     ".config/hypr/scripts/replay_start.sh".source = ./hypr/scripts/replay_start.sh;
+    ".config/hypr/scripts/replay_setup.sh".source = ./hypr/scripts/replay_setup.sh;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
