@@ -10,6 +10,7 @@
     ../default.nix
     ./hardware-configuration.nix
     ../../modules/asus.nix
+    ../../modules/audio.nix
     ../../modules/gaming.nix
     ../../modules/virt.nix
     inputs.pp-to-amd-epp.nixosModules.pp-to-amd-epp
@@ -118,16 +119,6 @@
     xkbVariant = "";
   };
 
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
