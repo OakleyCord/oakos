@@ -25,3 +25,5 @@ nm-applet --indicator &
 rog-control-center &
 
 
+# Replays
+~/.config/hypr/scripts/replay_start.sh &
