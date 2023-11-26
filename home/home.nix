@@ -71,6 +71,13 @@
 
 
     wl-screenrec
+
+
+    # remote desktop
+#    rustdesk
+
+    # modding
+    r2modman
   ];
 
 

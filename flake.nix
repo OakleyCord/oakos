@@ -32,7 +32,7 @@
 
     # hyprland stuffs
     hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.32.3";
+      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprfocus = {
