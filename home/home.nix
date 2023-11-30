@@ -197,7 +197,7 @@
   qt = {
     enable = true;
     platformTheme = "gtk";
-    style.name = "adwiada-qt";
+    style.name = "gtk2";
   };
 
   programs.zsh = {
