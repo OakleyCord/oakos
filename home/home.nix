@@ -75,6 +75,8 @@
 
     # remote desktop
 #    rustdesk
+   
+    jq
 
     # modding
     self.packages.${pkgs.system}.r2modman
