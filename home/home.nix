@@ -5,6 +5,7 @@
     inputs.nix-colors.homeManagerModules.default
     inputs.agenix.homeManagerModules.age
     ./waybar/waybar.nix
+    ./firefox/firefox.nix
   ];
 
 
@@ -53,7 +54,6 @@
     # discord
     armcord
 
-    firefox
     obs-studio
     jetbrains.idea-ultimate
     sublime-music

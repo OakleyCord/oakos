@@ -305,6 +305,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1701297900,
+        "narHash": "sha256-P2iNMqLm8lgcfsuLQEAPmbZeYomWfckTNA2TEDLlER8=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "64dba129a417f506338de690a3e8b8829e7d8df6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "pp-to-amd-epp": {
       "inputs": {
         "nixpkgs": [
@@ -335,6 +350,7 @@
         "nix-colors": "nix-colors",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
+        "nur": "nur",
         "pp-to-amd-epp": "pp-to-amd-epp",
         "split-monitor-workspaces": "split-monitor-workspaces"
       }
