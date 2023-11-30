@@ -1,7 +1,10 @@
 { inputs, config, pkgs, ... }:
 {
   # gaming stuffs
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  };
   programs.gamemode.enable = true;
   # fix gamescope on steam
   nixpkgs.config.packageOverrides = pkgs: {
