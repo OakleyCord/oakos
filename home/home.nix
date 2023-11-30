@@ -6,6 +6,7 @@
     inputs.agenix.homeManagerModules.age
     ./waybar/waybar.nix
     ./firefox/firefox.nix
+    ./mpv/mpv.nix
   ];
 
 
@@ -59,9 +60,8 @@
     sublime-music
     kitty
     dolphin-emu
-    # brokey :(
-    # jellyfin-mpv-shim
-    mpv
+    # not brokey :)
+    jellyfin-mpv-shim
     prismlauncher
     lunar-client
     vscode
