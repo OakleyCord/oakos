@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, self, ... }:
 
 {
   imports = [
@@ -77,7 +77,7 @@
 #    rustdesk
 
     # modding
-    r2modman
+    self.packages.${pkgs.system}.r2modman
   ];
 
 

@@ -65,17 +65,20 @@
 
   in
   {
-
+    # added this because i wanted a newer version of r2modman for lethal company, seems to not work on wayland but will run under gamescope
+    packages.${system} =  {
+      r2modman = pkgs.callPackage ./packages/r2modman.nix {};
+    };
     nixosConfigurations = {
       blerm = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs system self; };
 
         modules = [
           ./sys/blerm/configuration.nix
         ];
       };
       wsl = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs system self; };
         modules = [
           ./sys/wsl/configuration.nix
         ];

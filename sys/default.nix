@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, self, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -26,7 +26,7 @@
 
   # user stuffs
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs self; };
     users = {
       oakley = import ../home/home.nix;
     };
