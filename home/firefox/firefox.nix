@@ -4,6 +4,7 @@
     inputs.nur.overlay
   ];
 
+  # TODO: get profile name from user
   programs.firefox = {
     enable = true;
     profiles.oakley = {
