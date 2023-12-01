@@ -266,14 +266,17 @@
 
       # syntax highlighting
       {
-        plugin =  (nvim-treesitter.withPlugins (p: [
-          p.tree-sitter-nix
-          p.tree-sitter-vim
-          p.tree-sitter-bash
-          p.tree-sitter-lua
-          p.tree-sitter-rust
-          p.tree-sitter-json
-        ]));
+        plugin = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
+
+        #   (nvim-treesitter.withPlugins (p: [
+        #   p.tree-sitter-nix
+        #   p.tree-sitter-vim
+        #   p.tree-sitter-bash
+        #   p.tree-sitter-lua
+        #   p.tree-sitter-rust
+        #   p.tree-sitter-rust
+        #   p.tree-sitter-json
+        # ]));
         config = toLuaFile ./nvim/plugins/treesitter.lua;
       }
 
