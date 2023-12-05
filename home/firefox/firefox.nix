@@ -37,10 +37,10 @@
       search.engines = {
         "Sear-Oaks!" = {
           urls = [{
-            template = "https://searx.oakleycord.dev/searxng/search?q={searchTerms}";
+            template = "https://searx.oakleycord.dev/search?q={searchTerms}";
           }];
 
-          iconUpdateURL = "https://searx.oakleycord.dev/searxng/static/themes/simple/img/favicon.svg";
+          iconUpdateURL = "https://searx.oakleycord.dev/static/themes/simple/img/favicon.svg";
           updateInterval = 24 * 60 * 60 * 1000;
           definedAliases = [ "@sx" ];
         };
