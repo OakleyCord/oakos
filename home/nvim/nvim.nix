@@ -18,6 +18,8 @@
       luajitPackages.lua-lsp
       # rust-analyzer
       # cargo
+
+      jdt-language-server
       nixd
     ];
 

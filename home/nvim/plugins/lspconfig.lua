@@ -48,6 +48,12 @@ require('lspconfig').nixd.setup {
     capabilities = capabilities,
 }
 
+require('lspconfig').jdtls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "jdt-language-server", "-configuration", "~/.cache/jdtls/config", "-data", "~/.cache/jdtls/workspace"},
+}
+
 require'lspconfig'.rust_analyzer.setup{
     on_attach = on_attach,
     capabilities = capabilities,
