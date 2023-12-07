@@ -143,8 +143,6 @@
     lf
     networkmanagerapplet
     nvtop-amd
-    gradle
-    krita
     nixpkgs-fmt
     fastfetch
     eww-wayland
