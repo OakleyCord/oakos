@@ -20,6 +20,7 @@
       # cargo
 
       jdt-language-server
+      clang-tools
       nixd
     ];
 
