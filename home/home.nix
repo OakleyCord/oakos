@@ -171,6 +171,7 @@
    ${builtins.readFile ./hypr/conf/binds.conf}
    ${builtins.readFile ./hypr/conf/exec.conf}
    ${builtins.readFile ./hypr/conf/monitors.conf}
+   ${builtins.readFile ./hypr/conf/windowrules.conf}
    ${builtins.readFile ./hypr/hyprland.conf}
    '';
     # Whether to enable hyprland-session.target on hyprland startup
