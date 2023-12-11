@@ -108,6 +108,12 @@
         config = toLuaFile ./plugins/lspconfig.lua;
       }
 
+      {
+        plugin = nvim-jdtls;
+        config = toLuaFile ./plugins/jdtls.lua;
+      }
+
+
       # help and kinda like an lsp for neovim configs
       neodev-nvim
 
@@ -123,6 +129,8 @@
       }
       # make it fast
       telescope-fzf-native-nvim
+      telescope-ui-select-nvim
+
 
       # replace nvim status bar
       {
