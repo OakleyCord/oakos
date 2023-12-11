@@ -108,10 +108,10 @@
         config = toLuaFile ./plugins/lspconfig.lua;
       }
 
-      {
-        plugin = nvim-jdtls;
-        config = toLuaFile ./plugins/jdtls.lua;
-      }
+      # {
+      #   plugin = nvim-jdtls;
+      #   config = toLuaFile ./plugins/jdtls.lua;
+      # }
 
 
       # help and kinda like an lsp for neovim configs
