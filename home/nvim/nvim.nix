@@ -77,6 +77,10 @@
         config = toLuaFile ./plugins/cmp.lua;
       }
 
+
+      #dir env cool
+      direnv-vim
+
       cmp_luasnip
       cmp-nvim-lsp
 
