@@ -28,7 +28,7 @@
 
   xdg.mimeApps.defaultApplications = {
     "text/plain" = [ "neovim-wrapper.desktop" ];
-    "inode/directory" = [ "dolphin.desktop" ];
+    "inode/directory" = [ "nemo.desktop" ];
     "image/*" = [ "imv.desktop" ];
     "video/png" = [ "mpv.desktop" ];
     "video/*" = [ "mpv.desktop" ];
@@ -92,7 +92,10 @@
     libnotify
 
     # file manager
-    gnome.nautilus
+    cinnamon.nemo
+
+    # compressed files
+    libsForQt5.ark
 
     # discord
     armcord
