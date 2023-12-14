@@ -2,6 +2,7 @@
 {
   imports = [
     ../waybar/waybar.nix
+    ../swaync/swaync.nix
   ];
 
   home.packages = with pkgs; [
@@ -19,9 +20,6 @@
 
     # the watchamacallit
     rofi-wayland
-
-    # notifications (for now)
-    dunst
 
     # wallpaper
     swww

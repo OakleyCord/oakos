@@ -14,7 +14,7 @@ eww daemon &
 swww init &
 
 # notifications
-dunst &
+swaync &
 
 # Networking
 nm-applet --indicator &
