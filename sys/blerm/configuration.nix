@@ -106,7 +106,12 @@
     # flatpak
     flatpak.enable = true;
     # Enable the KDE Plasma Desktop Environment.
-    xserver.displayManager.sddm.enable = true;
+    xserver.displayManager.sddm = {
+      enable = true;
+      theme = "rose-pine";
+      # expiremental wayland support
+      wayland.enable = true;
+    };
 
     # set default for sddm
     xserver.displayManager.defaultSession = "hyprland";
@@ -134,6 +139,7 @@
   # gpu usage
   environment.systemPackages = with pkgs; [
     nvtop-amd
+    self.packages.${pkgs.system}.sddm-rose-pine
   ];
 
   # This value determines the NixOS release from which the default
