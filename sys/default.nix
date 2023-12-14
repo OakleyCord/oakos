@@ -32,6 +32,11 @@
 
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages.${system}.default
+    neovim
+    git
+    btop
+    unzip
+    fastfetch
   ];
 
   # required for alot of stuffs

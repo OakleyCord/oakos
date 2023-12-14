@@ -22,12 +22,13 @@
 
   networking.firewall.checkReversePath = false; 
 
-  services.hardware.bolt.enable = true;
+  # usb 4 still not here unsure if this is needed for that anyways
+  #services.hardware.bolt.enable = true;
 
   # fix backlight perms
   services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
-    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chmod g+rw /sys/class/backlight/%k/brightness"
+  ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chgrp video /sys/class/backlight/%k/brightness"
+  ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="amdgpu_bl*", RUN+="${pkgs.coreutils}/bin/chmod g+rw /sys/class/backlight/%k/brightness"
   '';
 
 
@@ -106,7 +107,7 @@
     flatpak.enable = true;
     # Enable the KDE Plasma Desktop Environment.
     xserver.displayManager.sddm.enable = true;
-    xserver.desktopManager.plasma5.enable = true;
+
     # set default for sddm
     xserver.displayManager.defaultSession = "hyprland";
   };
@@ -124,42 +125,16 @@
   services.xserver.libinput.enable = true;
 
   programs.partition-manager.enable = true;
-  programs.kdeconnect.enable = true;
+  # not using it anymore
+ # programs.kdeconnect.enable = true;
 
 
-  services.tailscale.enable = true;
+ services.tailscale.enable = true;
 
+  # gpu usage
   environment.systemPackages = with pkgs; [
-    neovim
-    flatpak
-    git
-    btop
-    unzip
-    wl-clipboard
-    pkgs.zsh
-    asusctl
-    gamescope
-    tailscale
-    lf
-    networkmanagerapplet
     nvtop-amd
-    nixpkgs-fmt
-    fastfetch
-    eww-wayland
-    swww
-    rofi-wayland
-    dunst
-
-    (waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-    })
-    )
-    #needed for some scripts
-    jq
-    python311
-    socat
   ];
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

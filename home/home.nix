@@ -4,13 +4,9 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.agenix.homeManagerModules.age
-    ./waybar/waybar.nix
-    ./firefox/firefox.nix
-    ./mpv/mpv.nix
     ./nvim/nvim.nix
+    ./graphical.nix
   ];
-
-
 
   # fix agenix user service not restarting on switching configs
   # https://github.com/ryantm/agenix/issues/50#issuecomment-1729135009
@@ -30,178 +26,19 @@
   home.packages = with pkgs; [
     killall
 
-
-    # screnshotting
-    sway-contrib.grimshot
-    grim
-    slurp
-    swappy
-
-    # file manager
-    gnome.nautilus
-
-    # audio control
-    pavucontrol
-
-    # image viewer
-    imv
-
-    # notify-send
-    libnotify
-
-    # notifications
-    swaynotificationcenter
-
-
-    # discord
-    armcord
-
-    obs-studio
-    jetbrains.idea-ultimate
-    sublime-music
-    kitty
-    dolphin-emu
-    # not brokey :)
-    jellyfin-mpv-shim
-    prismlauncher
-    lunar-client
-    vscode
-    gnome.gnome-software
-    monero-gui
-    thunderbird
-
-
-    wl-screenrec
-
-
-    # remote desktop
-#    rustdesk
-   
+    #needed for some scripts
     jq
-
-    # modding
-    self.packages.${pkgs.system}.r2modman
+    python311
+    socat
   ];
-
-
-  # bluetooth :]
-  services.blueman-applet.enable = true;
-
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # TODO: maybe just do the folder?
-    ".config/hypr/scripts/autostart.sh".source = ./hypr/scripts/autostart.sh;
-    ".config/hypr/scripts/replay_start.sh".source = ./hypr/scripts/replay_start.sh;
-    ".config/hypr/scripts/replay_setup.sh".source = ./hypr/scripts/replay_setup.sh;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
 
   # nix-color theme
   colorScheme = inputs.nix-colors.colorSchemes.rose-pine;
-
-
-  programs.kitty = {
-    enable = true;
-    theme = "Rosé Pine";
-
-    settings = {
-      background_opacity = "0.85";
-      confirm_os_window_close = "0";
-    };
-  };
-
-  systemd.user.services = {
-    # rich presence
-    arrpc = {
-      Unit.Description = "Discord rich presence";
-      Install.WantedBy = [ "graphical-session.target" ];
-      Unit.Wants = [ "graphical-session.target" ];
-      Unit.After = [ "graphical-session.target" ];
-      Service = {
-        ExecStart = "${pkgs.arrpc}/bin/arrpc";
-      };
-    };
-
-    # polkit 
-    polkit-gnome-agent = {
-      Unit.Description = "polkit-gnome-authentication-agent-1";
-      Install.WantedBy = [ "graphical-session.target" ];
-      Unit.Wants = [ "graphical-session.target" ];
-      Unit.After = [ "graphical-session.target" ];
-      Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
-  };
-
-  services.gnome-keyring = {
-    enable = true;
-    components = [ "pkcs11" "secrets" "ssh" ];
-  };
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-
-
-    plugins = [
-      inputs.hyprfocus.packages.${pkgs.system}.default
-      #brokey
-#      inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
-      # does not work on latest git version of hyprland while hyprfocus only works on latest git version
-      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
-   ];
-
-   extraConfig = ''
-   ${builtins.readFile ./hypr/conf/colors.conf}
-   ${builtins.readFile ./hypr/conf/binds.conf}
-   ${builtins.readFile ./hypr/conf/exec.conf}
-   ${builtins.readFile ./hypr/conf/monitors.conf}
-   ${builtins.readFile ./hypr/conf/windowrules.conf}
-   ${builtins.readFile ./hypr/hyprland.conf}
-   '';
-    # Whether to enable hyprland-session.target on hyprland startup
-    systemd.enable = true;
-  };
-
-  services.swayosd.enable = true;
 
   programs.git = {
     enable = true;
     userName = "oakley";
     userEmail = "oakleycord@proton.me";
-  };
-
-  gtk = {
-    enable = true;
-    theme.name = "rose-pine";
-    theme.package = pkgs.rose-pine-gtk-theme;
-    cursorTheme.name = "Catppuccin-Macchiato-Dark";
-    cursorTheme.package = pkgs.catppuccin-cursors;
-    iconTheme.name = "Papirus-Dark";
-    iconTheme.package = pkgs.papirus-icon-theme;
-    font.name = "source-code-pro";
-    font.package = pkgs.nerdfonts;
-  };
-
-  qt = {
-    enable = true;
-    platformTheme = "gtk";
-    style.name = "gtk2";
   };
 
   programs.zsh = {
@@ -220,30 +57,9 @@
     enable = true;
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "text/plain" = [ "neovim-wrapper.desktop" ];
-    "inode/directory" = [ "dolphin.desktop" ];
-    "image/*" = [ "imv.desktop" ];
-    "video/png" = [ "mpv.desktop" ];
-    "video/*" = [ "mpv.desktop" ];
-    "x-scheme-handler/http" = [ "firefox.desktop" ];
-    "x-scheme-handler/https" = [ "firefox.desktop" ];
-    "text/html" = [ "firefox.desktop "];
-  };
-
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    # fix gamescope on steam
-    # TODO: move to gaming.nix module
-    GDK_BACKEND = "wayland,x11";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    #SDL_VIDEODRIVER = "x11";
-    CLUTTER_BACKEND = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   nixpkgs.config.allowUnfree = true;
