@@ -56,7 +56,8 @@ require('lspconfig').nixd.setup {
 require('lspconfig').jdtls.setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "jdt-language-server", "-configuration", ".cache/jdtls/config", "-data", ".cache/jdtls/workspace"},
+    -- TODO: some how format in a way that the home locations will be automatically filled in some way 
+    cmd = { "jdt-language-server", "-configuration", "/home/oakley/.cache/jdtls/config", "-data", "/home/oakley/.cache/jdtls/workspace"},
 }
 
 require'lspconfig'.rust_analyzer.setup{
