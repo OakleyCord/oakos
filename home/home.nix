@@ -30,6 +30,9 @@
     jq
     python311
     socat
+
+    # fetch
+    pfetch
   ];
 
   # nix-color theme
@@ -45,6 +48,9 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
+    initExtra = ''
+    pfetch
+    '';
   };
 
   programs.direnv = {
@@ -55,11 +61,6 @@
 
   programs.starship = {
     enable = true;
-  };
-
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
   };
 
   nixpkgs.config.allowUnfree = true;
