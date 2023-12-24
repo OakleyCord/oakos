@@ -68,7 +68,6 @@
   {
     # added this because i wanted a newer version of r2modman for lethal company, seems to not work on wayland but will run under gamescope
     packages.${system} =  {
-      r2modman = pkgs.callPackage ./packages/r2modman.nix {};
       sddm-rose-pine = pkgs.callPackage ./packages/sddm-rose-pine.nix {};
     };
     nixosConfigurations = {

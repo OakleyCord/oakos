@@ -113,6 +113,6 @@
     thunderbird
 
     # game modding
-    self.packages.${pkgs.system}.r2modman
+    r2modman
   ];
 }
