@@ -1,10 +1,4 @@
 require('telescope').setup({
-    mappings = {
-        n = {
-            ["<leader>ff"] = "find_files",
-            ["<leader>fg"] = "live_grep"
-        }
-    },
     extensions = {
         fzf = {
             fuzzy = true,                    -- false will only do exact matching
@@ -34,6 +28,13 @@ require('telescope').setup({
       -- }
     }
 })
+
+local builtin = require('telescope.builtin')
+-- ?? idk why i have to do this for it to work
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.keymap.set('n', '<leader>ff', builtin.find_files)
+vim.keymap.set('n', '<leader>fg', builtin.live_grep)
 
 
 require('telescope').load_extension('ui-select')

@@ -22,6 +22,9 @@
       jdt-language-server
       clang-tools
       nixd
+
+      # for telescope
+      ripgrep
     ];
 
     extraLuaConfig = ''
