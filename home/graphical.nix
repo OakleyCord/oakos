@@ -40,15 +40,15 @@
 
   systemd.user.services = {
     # rich presence
-    arrpc = {
-      Unit.Description = "Discord rich presence";
-      Install.WantedBy = [ "graphical-session.target" ];
-      Unit.Wants = [ "graphical-session.target" ];
-      Unit.After = [ "graphical-session.target" ];
-      Service = {
-        ExecStart = "${pkgs.arrpc}/bin/arrpc";
-      };
-    };
+    #arrpc = {
+    #  Unit.Description = "Discord rich presence";
+    #  Install.WantedBy = [ "graphical-session.target" ];
+    #  Unit.Wants = [ "graphical-session.target" ];
+    #  Unit.After = [ "graphical-session.target" ];
+    #  Service = {
+    #    ExecStart = "${pkgs.arrpc}/bin/arrpc";
+    #  };
+    #};
 
     # polkit 
     polkit-gnome-agent = {
@@ -98,7 +98,7 @@
     libsForQt5.ark
 
     # discord
-    armcord
+    vesktop
 
     obs-studio
     jetbrains.idea-ultimate
