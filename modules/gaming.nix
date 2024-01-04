@@ -27,5 +27,8 @@
   environment.systemPackages = with pkgs; [
     mangohud
     gamescope
+
+    # roblox
+    vinegar
   ];
 }
