@@ -78,6 +78,13 @@
           ./sys/blerm/configuration.nix
         ];
       };
+      thinkpaw = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system self; };
+
+        modules = [
+          ./sys/thinkpaw/configuration.nix
+        ];
+      };
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs system self; };
         modules = [

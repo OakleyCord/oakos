@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
     ../default.nix
+    ../graphical.nix
     ./hardware-configuration.nix
     ../../modules/asus.nix
     ../../modules/audio.nix
@@ -15,10 +16,6 @@
     ../../modules/virt.nix
     inputs.pp-to-amd-epp.nixosModules.pp-to-amd-epp
   ];
-
-
-  security.pam.services.sddm.enableGnomeKeyring = true;
-  services.gnome.gnome-keyring.enable = true;
 
   networking.firewall.checkReversePath = false; 
 
@@ -80,69 +77,26 @@
     # don't enable if on kde appearently
     #  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-
     # Enable networking
     networkmanager.enable = true;
 
   };
 
 
-  hardware = {
-    opengl.enable = true;
-    opengl.driSupport = true;
-    opengl.driSupport32Bit = true;
-
-  };
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  services = {
-    xserver.enable = true;
-    xserver.videoDrivers = [ "amdgpu" ];
-
-    # flatpak
-    flatpak.enable = true;
-    # Enable the KDE Plasma Desktop Environment.
-    xserver.displayManager.sddm = {
-      enable = true;
-      theme = "rose-pine";
-      # expiremental wayland support
-      wayland.enable = true;
-    };
-
-    # set default for sddm
-    xserver.displayManager.defaultSession = "hyprland";
-  };
-
-  xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
-  fonts.fontDir.enable = true;
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
 
   # Power saving stuffs
   services.power-profiles-daemon.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput.enable = true;
 
-  programs.partition-manager.enable = true;
   # not using it anymore
  # programs.kdeconnect.enable = true;
 
-
  services.tailscale.enable = true;
-
   # gpu usage
   environment.systemPackages = with pkgs; [
     nvtop-amd
-    self.packages.${pkgs.system}.sddm-rose-pine
   ];
 
   # This value determines the NixOS release from which the default
