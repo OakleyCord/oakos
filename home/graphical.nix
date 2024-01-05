@@ -111,8 +111,5 @@
     gnome.gnome-software
     monero-gui
     thunderbird
-
-    # game modding
-    r2modman
   ];
 }
