@@ -9,6 +9,7 @@
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t420
       ./hardware-configuration.nix
       ../../modules/audio.nix
+      ../../modules/fprint.nix
       ../graphical.nix
       ../default.nix
     ];
