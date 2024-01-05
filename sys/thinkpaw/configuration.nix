@@ -18,6 +18,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # use latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   services.xserver.videoDrivers = [ "i915" ];
 
   # gpu usage
