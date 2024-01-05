@@ -55,18 +55,18 @@
       pulseaudio = { 
         format = "{volume}% {icon} {format_source}";
         format-bluetooth = "{volume}% {icon}  {format_source}";
-        format-bluetooth-muted = " {icon}  {format_source}";
-        format-muted = "婢 {format_source}";
+        format-bluetooth-muted = "󰋐 {icon}  {format_source}";
+        format-muted = "󰝟 {format_source}";
         format-source = "{volume}% ";
         format-source-muted = "";
         format-icons = {
           headphone = "";
-          hands-free = "";
-          headset = "";
+          hands-free = "󰏴";
+          headset = "󰋎";
           phone = "";
           portable = "";
           car = "";
-          default = ["奄" "奔" "墳"];
+          default = ["󰕿" "󰖀" "󰕾"];
         };
         on-scroll-up = "swayosd --output-volume=raise";
         on-scroll-down = "swayosd --output-volume=lower";
