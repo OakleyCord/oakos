@@ -30,5 +30,8 @@
 
     # roblox
     vinegar
+
+    # game modding
+    r2modman
   ];
 }
