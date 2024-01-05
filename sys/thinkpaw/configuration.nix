@@ -23,6 +23,13 @@
 
   services.xserver.videoDrivers = [ "i915" ];
 
+  hardware.opengl = {
+    extraPackages = with pkgs; [
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
   # gpu usage
   environment.systemPackages = with pkgs; [
     nvtop-intel
