@@ -34,6 +34,12 @@
       inputs.darwin.follows = "";
     };
 
+    # runner
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # hyprland stuffs
     hyprland = {
       # locked to latest working git version

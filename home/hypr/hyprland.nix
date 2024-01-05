@@ -3,6 +3,7 @@
   imports = [
     ../waybar/waybar.nix
     ../swaync/swaync.nix
+    inputs.anyrun.homeManagerModules.default
   ];
 
   home.packages = with pkgs; [
@@ -17,9 +18,6 @@
 
     # notifications
     swaynotificationcenter
-
-    # the watchamacallit
-    rofi-wayland
 
     # wallpaper
     swww
@@ -44,6 +42,26 @@
     };
   };
 
+  programs.anyrun = {
+    enable = true;
+    config = {
+      plugins = [
+        inputs.anyrun.packages.${pkgs.system}.applications
+      ];
+      x = { fraction = 0.5; };
+      y = { fraction = 0.3; };
+      width = { fraction = 0.3; };
+      layer = "overlay";
+      hidePluginInfo = true;
+    };
+
+    extraCss = ''
+    window {
+      background: transparent;
+    }
+    '';
+  };
+
   # bluetooth :]
   services.blueman-applet.enable = true;
 
@@ -53,8 +71,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-
-
 
     plugins = [
       inputs.hyprfocus.packages.${pkgs.system}.default
