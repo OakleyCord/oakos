@@ -61,6 +61,20 @@
 
   programs.starship = {
     enable = true;
+    settings = {
+      username = {
+        style_user = "white bold";
+        style_root = "black bold";
+        format = "[$user]($style)";
+        disabled = false;
+        show_always = true; 
+      };
+      hostname = {
+        ssh_only = false;
+        format = "[$ssh_symbol](bold blue) on [$hostname](bold red) ";
+        disabled = false;
+      };
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
