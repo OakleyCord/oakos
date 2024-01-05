@@ -2,11 +2,11 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, self, ... }:
-
+{ inputs, config, lib, pkgs, self, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
+      inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t420
       ./hardware-configuration.nix
       ../../modules/audio.nix
       ../graphical.nix

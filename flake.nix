@@ -23,7 +23,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    
+    # settings for specific hardware
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";   
+
     # secret management
     agenix = {
       url = "github:ryantm/agenix";
