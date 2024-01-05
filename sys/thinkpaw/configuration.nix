@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../modules/audio.nix
       ../../modules/fprint.nix
+      ../../modules/gaming.nix
       ../graphical.nix
       ../default.nix
     ];
