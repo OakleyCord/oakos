@@ -111,5 +111,8 @@
     gnome.gnome-software
     monero-gui
     thunderbird
+
+    # i need this assignment done
+    libreoffice
   ];
 }
