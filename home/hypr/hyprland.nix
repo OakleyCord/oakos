@@ -66,6 +66,8 @@
   services.blueman-applet.enable = true;
 
   # on screen display
+  # service broken due to change in command name (swayosd -> swayosd-server)
+  # see home/hypr/scripts/autostart.sh
   services.swayosd.enable = true;
 
   wayland.windowManager.hyprland = {

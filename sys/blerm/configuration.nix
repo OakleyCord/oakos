@@ -14,7 +14,7 @@
     ../../modules/audio.nix
     ../../modules/gaming.nix
     ../../modules/virt.nix
-    inputs.pp-to-amd-epp.nixosModules.pp-to-amd-epp
+    # inputs.pp-to-amd-epp.nixosModules.pp-to-amd-epp
   ];
 
   networking.firewall.checkReversePath = false; 
@@ -67,7 +67,8 @@
     };
 
 
-    services.pp-to-amd-epp.enable = true;
+    # replaced with asusd having pp-to-amd-epp like config option builtin
+    # services.pp-to-amd-epp.enable = true;
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

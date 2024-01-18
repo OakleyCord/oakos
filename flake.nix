@@ -18,10 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    pp-to-amd-epp = {
-      url = github:OakleyCord/pp-to-amd-epp;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # pp-to-amd-epp = {
+    #   url = github:OakleyCord/pp-to-amd-epp;
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     # settings for specific hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";   
