@@ -86,6 +86,19 @@
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
+  # Add amdvlk for optional usage + opencl
+  hardware.opengl = {
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+      amdvlk
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
+  };
+
+  # Use RADV by default
+  environment.variables.AMD_VULKAN_ICD = "RADV";
 
   # Power saving stuffs
   services.power-profiles-daemon.enable = true;
