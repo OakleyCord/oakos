@@ -114,5 +114,10 @@
 
     # i need this assignment done
     libreoffice
+
+    # for doing some audio stuffs
+    ffmpeg
+    audacity
+    kid3
   ];
 }
