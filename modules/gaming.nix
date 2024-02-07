@@ -58,7 +58,7 @@
     mangohud
 
     # roblox
-    vinegar
+#    vinegar
 
     # game modding
     r2modman

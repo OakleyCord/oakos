@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     ../default.nix
     ../graphical.nix
     ./hardware-configuration.nix
@@ -14,7 +15,6 @@
     ../../modules/audio.nix
     ../../modules/gaming.nix
     ../../modules/virt.nix
-    # inputs.pp-to-amd-epp.nixosModules.pp-to-amd-epp
   ];
 
   networking.firewall.checkReversePath = false; 

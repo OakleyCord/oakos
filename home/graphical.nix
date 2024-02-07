@@ -101,7 +101,7 @@
     vesktop
 
     obs-studio
-    jetbrains.idea-ultimate
+#    jetbrains.idea-ultimate
     dolphin-emu
     # not brokey :)
     jellyfin-mpv-shim
