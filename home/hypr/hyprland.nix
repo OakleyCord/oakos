@@ -76,6 +76,7 @@
     ];
     #xdgOpenUsePortal = true;
   };
+  programs.swaylock.enable = true;
 
   # bluetooth :]
   services.blueman-applet.enable = true;
@@ -105,10 +106,7 @@
     ${builtins.readFile ./hyprland.conf}
     '';
     # Whether to enable hyprland-session.target on hyprland startup
-    systemd = {
-      enable = true;
-      variables = ["-all"];
-    };
+    systemd.enable = true;
   };
 
   home.sessionVariables = {

@@ -7,6 +7,9 @@
 
   };
 
+  # fix swaylock
+  security.pam.services.swaylock = {};
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;

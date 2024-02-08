@@ -37,6 +37,9 @@
     btop
     unzip
     fastfetch
+
+    # idk why but if i put this in home manager config it just doesn't work
+    home-manager
   ];
 
   # required for alot of stuffs
