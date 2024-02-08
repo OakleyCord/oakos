@@ -17,7 +17,7 @@
     iconTheme.name = "rose-pine";
     iconTheme.package = pkgs.rose-pine-icon-theme;
     font.name = "source-code-pro";
-    font.package = pkgs.nerdfonts;
+    font.package = (pkgs.nerdfonts.override { fonts = [ "SourceCodePro" ]; });
   };
 
   qt = {
