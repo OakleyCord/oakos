@@ -13,9 +13,9 @@
     theme.name = "rose-pine";
     theme.package = pkgs.rose-pine-gtk-theme;
     cursorTheme.name = "Catppuccin-Macchiato-Dark";
-    cursorTheme.package = pkgs.catppuccin-cursors;
-    iconTheme.name = "Papirus-Dark";
-    iconTheme.package = pkgs.papirus-icon-theme;
+    cursorTheme.package = pkgs.catppuccin-cursors.macchiatoDark;
+    iconTheme.name = "rose-pine";
+    iconTheme.package = pkgs.rose-pine-icon-theme;
     font.name = "source-code-pro";
     font.package = pkgs.nerdfonts;
   };
