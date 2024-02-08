@@ -3,7 +3,7 @@
 {
 
 
-  programs.waybar = with config.colorScheme.colors; {
+  programs.waybar = with config.colorScheme.palette; {
     enable = true;
     # doesn't work well, starting in autostart hyprland script instead
 #    systemd.enable = true;

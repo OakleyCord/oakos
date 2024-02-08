@@ -6,6 +6,7 @@
 
     # Open ports in the firewall for Steam Remote Play
     remotePlay.openFirewall = true;  
+    gamescopeSession.enable = true;
 
     package = pkgs.steam.override {
       extraPkgs = pkgs: with pkgs; [
@@ -33,7 +34,7 @@
 
   programs.gamescope = {
     enable = true;
-#    capSysNice = true;
+    capSysNice = true;
   };
 
   # fix gamescope on steam

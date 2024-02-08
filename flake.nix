@@ -42,8 +42,7 @@
 
     # hyprland stuffs
     hyprland = {
-      # locked to latest working git version
-      url = "github:hyprwm/Hyprland?ref=v0.34.0";
+      url = "github:hyprwm/Hyprland?ref=v0.35.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprfocus = {
