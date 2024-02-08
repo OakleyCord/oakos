@@ -110,15 +110,12 @@
   };
 
   home.sessionVariables = {
-    # fix gamescope on steam
-    # TODO: move to gaming.nix module
-    GDK_BACKEND = "wayland,x11";
-    QT_QPA_PLATFORM = "wayland;xcb";
-    #SDL_VIDEODRIVER = "x11";
-    CLUTTER_BACKEND = "wayland";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "Hyprland";
-    WLR_NO_HARDWARE_CURSORS = "1";
+    GDK_BACKEND = "wayland,x11";
+    CLUTTER_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland;xcb";
   };
 }

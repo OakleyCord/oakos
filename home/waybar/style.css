@@ -138,7 +138,7 @@ tooltip {
 
 
 #tray menu {
-  background: @surface0;
+  background-color: transparent;
 
   border-radius: 20px;
 }
