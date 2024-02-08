@@ -37,19 +37,21 @@
     "text/html" = [ "firefox.desktop "];
   };
 
+  xdg.portal = {
+    enable = true;
+
+    configPackages = [
+      inputs.hyprland.packages.${pkgs.system}.hyprland
+    ];
+
+    extraPortals = with pkgs; [
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    #xdgOpenUsePortal = true;
+  };
 
   systemd.user.services = {
-    # rich presence
-    #arrpc = {
-    #  Unit.Description = "Discord rich presence";
-    #  Install.WantedBy = [ "graphical-session.target" ];
-    #  Unit.Wants = [ "graphical-session.target" ];
-    #  Unit.After = [ "graphical-session.target" ];
-    #  Service = {
-    #    ExecStart = "${pkgs.arrpc}/bin/arrpc";
-    #  };
-    #};
-
     # polkit 
     polkit-gnome-agent = {
       Unit.Description = "polkit-gnome-authentication-agent-1";
@@ -101,7 +103,6 @@
     vesktop
 
     obs-studio
-#    jetbrains.idea-ultimate
     dolphin-emu
     # not brokey :)
     jellyfin-mpv-shim

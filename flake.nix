@@ -59,7 +59,7 @@
     };
   };
 
-  outputs = {self, nixpkgs, ...}@inputs:
+  outputs = {self, nixpkgs, home-manager, ...}@inputs:
   let
     system = "x86_64-linux";
     
@@ -97,6 +97,14 @@
         modules = [
           ./sys/wsl/configuration.nix
         ];
+      };
+    };
+    homeConfigurations = {
+      oakley = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs system self; };
+
+        modules = [ ./home/home.nix ];
       };
     };
   };

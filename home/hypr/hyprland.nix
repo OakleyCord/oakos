@@ -62,6 +62,21 @@
     '';
   };
 
+  # TODO: this whole thing is kinda a nothing burger does exactly the same without this config need to add config that fixes xdg open to this.
+  xdg.portal = {
+    enable = true;
+
+    configPackages = [
+      inputs.hyprland.packages.${pkgs.system}.hyprland
+    ];
+
+    extraPortals = with pkgs; [
+      inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
+    #xdgOpenUsePortal = true;
+  };
+
   # bluetooth :]
   services.blueman-applet.enable = true;
 
