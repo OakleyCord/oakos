@@ -6,27 +6,27 @@
   programs.waybar = with config.colorScheme.palette; {
     enable = true;
     # doesn't work well, starting in autostart hyprland script instead
-#    systemd.enable = true;
-#    systemd.target = "hyprland-session.target";
+    # systemd.enable = true;
+    # systemd.target = "hyprland-session.target";
 
-    # temp use catpuccin color names for compat
+    # TODO: very generic color names maybe too generic
     style = ''
-    @define-color base  #${base00};
-    @define-color mantle #${base01};
-    @define-color surface0 #${base02};
-    @define-color surface1 #${base03};
-    @define-color surface2 #${base04};
+    @define-color base00  #${base00};
+    @define-color base01 #${base01};
+    @define-color base02 #${base02};
+    @define-color secondary00 #${base03};
+    @define-color secondary01 #${base04};
     @define-color text #${base05};
-    @define-color rosewater #${base06};
-    @define-color lavender #${base07};
-    @define-color red #${base08};
-    @define-color peach #${base09};
-    @define-color yellow #${base0A};
-    @define-color green #${base0B};
-    @define-color teal #${base0C};
-    @define-color blue #${base0D};
-    @define-color mauve #${base0E};
-    @define-color flamingo #${base0F};
+    @define-color accent00 #${base06};
+    @define-color accent01 #${base07};
+    @define-color accent02 #${base08};
+    @define-color accent03 #${base09};
+    @define-color accent04 #${base0A};
+    @define-color accent05 #${base0B};
+    @define-color accent06 #${base0C};
+    @define-color accent07 #${base0D};
+    @define-color accent08 #${base0E};
+    @define-color accent09 #${base0F};
     ${builtins.readFile ./style.css} 
     '';
 
@@ -35,7 +35,7 @@
       margin-top = 5;
       margin-left = 5;
       margin-right = 5;
-      modules-left = ["hyprland/workspaces" "backlight" "pulseaudio" "network"];
+      modules-left = ["hyprland/workspaces" "backlight" "pulseaudio"];
       modules-center = ["clock"];
       modules-right =  ["temperature" "cpu" "memory" "battery" "custom/notification" "tray"];
       "wlr/workspaces" = {
@@ -95,7 +95,7 @@
       };
       cpu = {
         interval = 10;
-        format = "{usage}% ({avg_frequency}GHz)  ";
+        format = "{usage}%  ";
         states = {
           warning = 25;
           critical = 75;
@@ -103,7 +103,7 @@
       };
       memory = {
         interval = 30;
-        format = "{percentage}% ({used:0.1f}G/{total:0.1f}G)  ";
+        format = "{percentage}%  ";
       };
       battery = {
         bat = "BAT0";
@@ -111,9 +111,10 @@
           warning = 35;
           critical = 20;
         };
-        format = "{capacity}% (-{power}W) {icon} ";
         format-icons = ["" "" "" "" ""];
-        format-charging = "{capacity}% (+{power}W) {icon}  ";
+        format = "{capacity}% {icon} ";
+        format-charging = "{capacity}% {icon}  ";
+        tooltip-format = "{timeTo} ({power}W)";
       };
       "custom/notification" = {
         tooltip = false;

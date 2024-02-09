@@ -13,11 +13,6 @@ eww daemon &
 # wallpaper
 swww init &
 
-swayosd-server &
-
-# notifications
-swaync &
-
 # Networking
 nm-applet --indicator &
 

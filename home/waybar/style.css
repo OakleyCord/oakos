@@ -1,8 +1,7 @@
 * {
-    color: @text;
     border:        none;
     border-radius: 0;
-    font-family:   FiraCode Nerd Font;
+    font-family:   source-code-pro;
     font-size:     15px;
     box-shadow:    none;
     text-shadow:   none;
@@ -10,41 +9,40 @@
 }
 
 window {
-    background: @base;
-    border-radius: 20px;
+    background: transparent;
 }
 
 tooltip {
-  background: @surface0;
-  border-radius: 20px;
+  background: transparent;
+  border-radius: 10px;
 }
 
-#workspaces {
+#battery, #cpu, #memory, #tray, #temperature, #clock, #workspaces, #backlight, #pulseaudio, #network, #custom-notification {
+    margin:     0px 3px;
+    padding: 0 10px;
     min-height: 30px;
-    margin: 0 5px;
-}
+    min-width:  25px;
 
+    border-radius: 10px;
+    background: @base00;
+}
 
 #workspaces button {
     padding:    0 5px;
+    margin: 3px 0px;
 
-    border-radius: 20px;
-}
-
-#workspaces button.visible {
-    color:      @blue;
+    border-radius: 10px;
+    transition: all 0.25s ease-in-out;
 }
 
 #workspaces button.active {
-    /*
-     * border-top: 3px solid @mauve;
-     */ 
-    border: 2px solid @yellow;
-
+    background-color: @accent05;
+    min-width: 50px;
+    transition: all 0.25s ease-in-out;
 }
 
 #workspaces button.urgent {
-    border: 0px solid @red;
+    border: 0px solid @accent02;
 
     animation-name: blink;
     animation-duration: 0.5s;
@@ -53,14 +51,6 @@ tooltip {
     animation-direction: alternate;
 }
 
-#battery, #cpu, #memory, #tray, #temperature, #clock, #workspaces, #backlight, #pulseaudio, #network, #custom-notification {
-    margin:     4px 5px;
-    padding: 0 10px;
-    min-width:  25px;
-
-    border-radius: 20px;
-    background: @mantle;
-}
 
 
 @keyframes blink {
@@ -69,25 +59,20 @@ tooltip {
     }
 }
 
-#clock {
-  border-top: solid 1px @yellow;
-  border-bottom: solid 1px @yellow;
-}
-
 
 #battery {
-  color: @green;
+  background-color: @accent05;
 }
 
 
 #battery.warning { 
-   color:       @peach;
-   border: 1px solid @peach;
+   background-color:       @accent03;
+   border: 1px solid @accent03;
 }
 
 #battery.critical { 
-    color:      @red;
-    border: 0px solid @red;
+    background-color:      @accent02;
+    border: 0px solid @accent02;
 
     animation-name: blink;
     animation-duration: 0.5s;
@@ -97,8 +82,7 @@ tooltip {
 }
 
 #battery.charging {
-    color:      @green;
-    border: 0px solid @green;
+    border: 0px solid @accent05;
 
     animation-name: blink;
     animation-duration: 1s;
@@ -108,14 +92,14 @@ tooltip {
 }
 
 #cpu.warning {
-  color: @peach;
+  background-color: @accent03;
 
-  border: 1px solid @peach;
+  border: 1px solid @accent03;
 }
 
 #cpu.critical {
-  color:      @red;
-  border: 0px solid @red;
+  background-color:      @accent02;
+  border: 0px solid @accent02;
 
   animation-name: blink;
   animation-duration: 0.5s;
@@ -126,8 +110,8 @@ tooltip {
 
 
 #temperature.critical {
-  color:      @red;
-  border: 0px solid @red;
+  background-color:      @accent02;
+  border: 0px solid @accent02;
 
   animation-name: blink;
   animation-duration: 0.5s;
@@ -144,8 +128,8 @@ tooltip {
 }
 
 #tray > .needs-attention {
-  color:      @red;
-  border: 0px solid @red;
+  color:      @accent02;
+  border: 0px solid @accent02;
   border-radius: 20px;
 
   animation-name: blink;
