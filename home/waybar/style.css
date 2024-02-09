@@ -43,21 +43,8 @@ tooltip {
 
 #workspaces button.urgent {
     border: 0px solid @accent02;
-
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
-
-
-@keyframes blink {
-    to {
-        border-width: 2px;
-    }
-}
 
 
 #battery {
@@ -73,22 +60,10 @@ tooltip {
 #battery.critical { 
     background-color:      @accent02;
     border: 0px solid @accent02;
-
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 #battery.charging {
     border: 0px solid @accent05;
-
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 #cpu.warning {
@@ -101,23 +76,12 @@ tooltip {
   background-color:      @accent02;
   border: 0px solid @accent02;
 
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 
 
 #temperature.critical {
   background-color:      @accent02;
   border: 0px solid @accent02;
-
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 
 
@@ -131,10 +95,4 @@ tooltip {
   color:      @accent02;
   border: 0px solid @accent02;
   border-radius: 20px;
-
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
