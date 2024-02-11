@@ -42,7 +42,7 @@ tooltip {
 }
 
 #workspaces button.urgent {
-    border: 0px solid @accent02;
+    /* border: 0px solid @accent02; */
 }
 
 
@@ -54,34 +54,31 @@ tooltip {
 
 #battery.warning { 
    background-color:       @accent03;
-   border: 1px solid @accent03;
+   /* border: 1px solid @accent03; */
 }
 
 #battery.critical { 
     background-color:      @accent02;
-    border: 0px solid @accent02;
+    /* border: 0px solid @accent02; */
 }
 
 #battery.charging {
-    border: 0px solid @accent05;
+    /* border: 0px solid @accent05; */
 }
 
 #cpu.warning {
   background-color: @accent03;
-
-  border: 1px solid @accent03;
 }
 
 #cpu.critical {
   background-color:      @accent02;
-  border: 0px solid @accent02;
 
 }
 
 
 #temperature.critical {
   background-color:      @accent02;
-  border: 0px solid @accent02;
+  /* border: 0px solid @accent02; */
 }
 
 
@@ -93,6 +90,6 @@ tooltip {
 
 #tray > .needs-attention {
   color:      @accent02;
-  border: 0px solid @accent02;
+  /* border: 0px solid @accent02; */
   border-radius: 20px;
 }
