@@ -5,9 +5,7 @@
 
   programs.waybar = with config.colorScheme.palette; {
     enable = true;
-    # doesn't work well, starting in autostart hyprland script instead
-    # systemd.enable = true;
-    # systemd.target = "hyprland-session.target";
+    systemd.enable = true;
 
     # TODO: very generic color names maybe too generic
     style = ''
