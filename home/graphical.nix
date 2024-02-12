@@ -79,9 +79,6 @@
     # notify-send
     libnotify
 
-    # file manager
-    cinnamon.nemo
-
     # compressed files
     libsForQt5.ark
 
