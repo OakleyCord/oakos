@@ -4,7 +4,6 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.agenix.homeManagerModules.age
-#    ./nvim/nvim.nix
     ./graphical.nix
   ];
 
