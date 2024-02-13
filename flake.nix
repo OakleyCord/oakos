@@ -8,6 +8,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    oakvim = {
+      url = "git+https://git.oak.li/oakley/oakvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nur.url = github:nix-community/NUR;
 
     nix-colors.url = "github:Misterio77/nix-colors";

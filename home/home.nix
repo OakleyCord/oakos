@@ -4,7 +4,7 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.agenix.homeManagerModules.age
-    ./nvim/nvim.nix
+#    ./nvim/nvim.nix
     ./graphical.nix
   ];
 
@@ -33,6 +33,9 @@
 
     # fetch
     pfetch
+
+    # neovim
+    inputs.oakvim.packages.${system}.default
   ];
 
   # nix-color theme
