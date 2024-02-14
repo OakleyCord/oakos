@@ -5,7 +5,8 @@
 
   programs.waybar = with config.colorScheme.palette; {
     enable = true;
-    systemd.enable = true;
+    # doesn't have access to things like swaync if i enable it this way
+    # systemd.enable = true;
 
     # TODO: very generic color names maybe too generic
     style = ''
