@@ -90,9 +90,6 @@
     # not brokey :)
     jellyfin-mpv-shim
     prismlauncher
-    lunar-client
-    vscode
-    gnome.gnome-software
     monero-gui
     thunderbird
 
