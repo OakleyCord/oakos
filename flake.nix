@@ -88,20 +88,20 @@
         specialArgs = { inherit inputs system self; };
 
         modules = [
-          ./sys/blerm/configuration.nix
+          ./hosts/blerm/configuration.nix
         ];
       };
       thinkpaw = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs system self; };
 
         modules = [
-          ./sys/thinkpaw/configuration.nix
+          ./hosts/thinkpaw/configuration.nix
         ];
       };
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs system self; };
         modules = [
-          ./sys/wsl/configuration.nix
+          ./hosts/wsl/configuration.nix
         ];
       };
     };
