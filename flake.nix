@@ -55,7 +55,8 @@
       inputs.hyprland.follows = "hyprland";
     };
     split-monitor-workspaces = {
-      url = "github:Duckonaut/split-monitor-workspaces";
+      # latest is brokey
+      url = "github:Duckonaut/split-monitor-workspaces?ref=2b1abdbf9e9de9ee660540167c8f51903fa3d959";
       inputs.hyprland.follows = "hyprland";
     };
     hyprland-plugins = {
