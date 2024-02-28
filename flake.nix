@@ -98,6 +98,13 @@
           ./hosts/thinkpaw/configuration.nix
         ];
       };
+      mebep = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system self; };
+       
+        modules = [
+           ./hosts/mebep/configuration.nix
+        ];
+      };
       wsl = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs system self; };
         modules = [
