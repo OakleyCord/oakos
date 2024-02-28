@@ -2,40 +2,45 @@
   description = "Oakley's NixOS Config";
   
   inputs = {
+
+    # Packages
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Managing home directory & config
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+
+    # Neovim config
     oakvim = {
       url = "git+https://git.oak.li/oakley/oakvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix User Repository, mostly used for Firefox extentions
     nur.url = github:nix-community/NUR;
 
+    # To help with some theming but I think I could replace this 
+    # TODO: remove or replace nix-colors
     nix-colors.url = "github:Misterio77/nix-colors";
 
-    # wsl support
+    # WSL support, but barely used probably will remove 
+    # TODO: remove WSL support
     nixos-wsl = {
       url = github:nix-community/NixOS-WSL;
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # pp-to-amd-epp = {
-    #   url = github:OakleyCord/pp-to-amd-epp;
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # settings for specific hardware
+    # Settings for specific hardware
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";   
 
-    # secret management
+    # Secret management
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      # small optimization to save a small amount of space on linux
+      # Small optimization to save a small amount of space on linux
       inputs.darwin.follows = "";
     };
 
