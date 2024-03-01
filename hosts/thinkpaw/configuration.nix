@@ -11,6 +11,7 @@
       ../../modules/audio.nix
       ../../modules/fprint.nix
       ../../modules/gaming.nix
+      ../../modules/hyprland.nix
       ../graphical.nix
       ../default.nix
     ];

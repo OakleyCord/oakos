@@ -16,7 +16,8 @@
     # Neovim config
     oakvim = {
       url = "git+https://git.oak.li/oakley/oakvim";
-#      inputs.nixpkgs.follows = "nixpkgs";
+      # this can sometimes break if there's a version mismatch
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Nix User Repository, mostly used for Firefox extentions

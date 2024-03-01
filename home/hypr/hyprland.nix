@@ -31,7 +31,7 @@
 
 
     # widgets (unused)
-    eww-wayland
+    eww
   ];
 
   home.file = {

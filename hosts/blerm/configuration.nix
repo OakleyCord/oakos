@@ -11,6 +11,7 @@
     ../default.nix
     ../graphical.nix
     ./hardware-configuration.nix
+    ../../modules/hyprland.nix
     ../../modules/asus.nix
     ../../modules/audio.nix
     ../../modules/gaming.nix
