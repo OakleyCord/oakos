@@ -4,6 +4,7 @@
   imports = [
     ./firefox/firefox.nix
     ./mpv/mpv.nix
+    # TODO: make it so i can chose desktop environment in hosts configs
     ./hypr/hyprland.nix
   ];
 

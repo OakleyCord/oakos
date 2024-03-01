@@ -10,11 +10,6 @@
   # fix swaylock
   security.pam.services.swaylock = {};
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
   # File manager
   programs.thunar = {
     enable = true;
@@ -38,9 +33,6 @@
       # expiremental wayland support
       wayland.enable = true;
     };
-
-    # set default for sddm
-    xserver.displayManager.defaultSession = "hyprland";
   };
   xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
   fonts.fontDir.enable = true;

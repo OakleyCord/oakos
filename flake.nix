@@ -16,6 +16,7 @@
     # Neovim config
     oakvim = {
       url = "git+https://git.oak.li/oakley/oakvim";
+      # this can sometimes break if there's a version mismatch
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

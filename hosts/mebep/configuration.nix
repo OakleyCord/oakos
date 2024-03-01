@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../modules/audio.nix
       ../../modules/gaming.nix
+      ../../modules/plasma6.nix
       ../graphical.nix
       ../default.nix
     ];
