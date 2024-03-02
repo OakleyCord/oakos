@@ -53,7 +53,7 @@
 
     # hyprland stuffs
     hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.35.0";
+      url = "github:hyprwm/Hyprland?ref=v0.36.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprfocus = {
@@ -62,7 +62,7 @@
     };
     split-monitor-workspaces = {
       # latest is brokey
-      url = "github:Duckonaut/split-monitor-workspaces?ref=2b1abdbf9e9de9ee660540167c8f51903fa3d959";
+      url = "github:Duckonaut/split-monitor-workspaces";
       inputs.hyprland.follows = "hyprland";
     };
     hyprland-plugins = {

@@ -94,7 +94,7 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
     plugins = [
-      inputs.hyprfocus.packages.${pkgs.system}.default
+#      inputs.hyprfocus.packages.${pkgs.system}.default
       #brokey
       #inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
       inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
