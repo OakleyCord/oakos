@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ self, lib, pkgs, config, ... }:
 with lib;
 let 
   cfg = config.oakos.desktop;

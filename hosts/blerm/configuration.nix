@@ -14,7 +14,7 @@
   ];
 
   oakos.desktop = {
-    enable = false;
+    enable = true;
     hyprland.enable = true;
   };
 
