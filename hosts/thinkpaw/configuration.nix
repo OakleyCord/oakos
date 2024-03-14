@@ -4,17 +4,20 @@
 
 { inputs, config, lib, pkgs, self, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t420
       ./hardware-configuration.nix
       ../../modules/audio.nix
       ../../modules/fprint.nix
       ../../modules/gaming.nix
-      ../../modules/hyprland.nix
-      ../graphical.nix
+      ../../modules/oakos.nix
       ../default.nix
-    ];
+  ];
+
+  oakos.desktop = {
+    enable = false;
+    hyprland.enable = true;
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

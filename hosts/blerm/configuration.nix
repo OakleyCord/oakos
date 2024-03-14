@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { inputs, config, pkgs, self, ... }:
 
 {
@@ -9,14 +5,18 @@
     [
       inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     ../default.nix
-    ../graphical.nix
     ./hardware-configuration.nix
-    ../../modules/hyprland.nix
+    ../../modules/oakos.nix
     ../../modules/asus.nix
     ../../modules/audio.nix
     ../../modules/gaming.nix
     ../../modules/virt.nix
   ];
+
+  oakos.desktop = {
+    enable = false;
+    hyprland.enable = true;
+  };
 
   networking.firewall.checkReversePath = false; 
 

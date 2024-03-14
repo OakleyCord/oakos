@@ -5,15 +5,20 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/audio.nix
       ../../modules/gaming.nix
-      ../../modules/plasma6.nix
+      ../../modules/oakos.nix
       ../graphical.nix
       ../default.nix
-    ];
+  ];
+
+  oakos.desktop = {
+    enable = true;
+    plasma6.enable = true;
+  };
+  
 
   # use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
