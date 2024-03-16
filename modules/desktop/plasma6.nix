@@ -10,7 +10,7 @@ in {
 
   config = mkIf cfg.enable {
 
-    services.xserver.desktopManager.plasma6.enable = true;
+    services.desktopManager.plasma6.enable = true;
 
     # set default for sddm
     services.xserver.displayManager.defaultSession = "plasma";
