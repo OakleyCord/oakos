@@ -9,12 +9,16 @@
   ];
 
   # theming
+  home.pointerCursor = {
+    name = "BreezeX-RosePine-Linux";
+    package = pkgs.rose-pine-cursor;
+    gtk.enable = true;
+    x11.enable = true;
+  };
   gtk = {
     enable = true;
     theme.name = "rose-pine";
     theme.package = pkgs.rose-pine-gtk-theme;
-    cursorTheme.name = "Catppuccin-Macchiato-Dark";
-    cursorTheme.package = pkgs.catppuccin-cursors.macchiatoDark;
     iconTheme.name = "rose-pine";
     iconTheme.package = pkgs.rose-pine-icon-theme;
     font.name = "source-code-pro";
