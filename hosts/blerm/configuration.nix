@@ -59,10 +59,10 @@
       #   };
       #});
       initrd.kernelModules = [ "amdgpu" ];
-      kernelModules = [ "amd-pstate" "v4l2loopback" ];
-      extraModulePackages = with config.boot.kernelPackages; [
-        v4l2loopback
-      ];
+      kernelModules = [ "amd-pstate" ];
+      # extraModulePackages = with config.boot.kernelPackages; [
+      #   v4l2loopback
+      # ];
       # does not work with pp-to-amd-epp
       # kernelParams = [ "amd_pstate=guided" ];
     };
