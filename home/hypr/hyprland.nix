@@ -29,6 +29,10 @@
     # clipboard
     wl-clipboard
 
+    # display management
+    nwg-displays
+    wlr-randr
+
 
     # widgets (unused)
     eww
@@ -104,7 +108,6 @@
     ${builtins.readFile ./conf/colors.conf}
     ${builtins.readFile ./conf/binds.conf}
     ${builtins.readFile ./conf/exec.conf}
-    ${builtins.readFile ./conf/monitors.conf}
     ${builtins.readFile ./conf/windowrules.conf}
     ${builtins.readFile ./hyprland.conf}
     '';
