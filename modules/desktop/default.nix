@@ -58,6 +58,7 @@ in {
 
     environment.systemPackages = with pkgs; [
       self.packages.${pkgs.system}.sddm-rose-pine
+      piper
     ];
 
 
@@ -65,6 +66,9 @@ in {
 
     security.pam.services.sddm.enableGnomeKeyring = true;
     services.gnome.gnome-keyring.enable = true;
+
+    # Gaming mouse stuffs
+    services.ratbagd.enable = true;
 
   };
 }
