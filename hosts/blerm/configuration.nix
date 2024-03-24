@@ -112,7 +112,7 @@
  services.tailscale.enable = true;
   # gpu usage
   environment.systemPackages = with pkgs; [
-    nvtop-amd
+    nvtopPackages.amd
   ];
 
   # This value determines the NixOS release from which the default
