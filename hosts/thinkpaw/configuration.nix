@@ -15,7 +15,7 @@
   ];
 
   oakos.desktop = {
-    enable = false;
+    enable = true;
     hyprland.enable = true;
   };
 
@@ -36,7 +36,7 @@
   };
   # gpu usage
   environment.systemPackages = with pkgs; [
-    nvtop-intel
+    nvtopPackages.intel
   ];
 
   # bluetooth
