@@ -101,7 +101,7 @@
       # no longer using
       #inputs.hyprfocus.packages.${pkgs.system}.default
       # brokey
-      inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+      inputs.hyprsplit.packages.${pkgs.system}.hyprsplit
     ];
 
     extraConfig = ''

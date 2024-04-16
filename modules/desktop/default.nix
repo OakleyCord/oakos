@@ -38,7 +38,7 @@ in {
       xserver.enable = true;
 
       flatpak.enable = true;
-      xserver.displayManager.sddm = {
+      displayManager.sddm = {
         enable = true;
         theme = "rose-pine";
         wayland.enable = true;

@@ -15,6 +15,6 @@ in {
     };
 
      # set default for sddm
-     services.xserver.displayManager.defaultSession = "hyprland";
+     services.displayManager.defaultSession = "hyprland";
    };
  }
