@@ -38,6 +38,7 @@
     unzip
     fastfetch
 
+    nh
     # idk why but if i put this in home manager config it just doesn't work
     home-manager
   ];
