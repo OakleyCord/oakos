@@ -62,7 +62,7 @@
     };
     hyprsplit = {
       # latest is brokey
-      url = "github:shezdy/hyprsplit";
+      url = "github:shezdy/hyprsplit?ref=v0.39.1";
       inputs.hyprland.follows = "hyprland";
     };
     hyprland-plugins = {

@@ -48,7 +48,7 @@ in {
     fonts.fontDir.enable = true;
 
     # Enable touchpad support (enabled default in most desktopManager).
-    services.xserver.libinput.enable = true;
+    services.libinput.enable = true;
 
     # Configure keymap in X11
     services.xserver.xkb = {
