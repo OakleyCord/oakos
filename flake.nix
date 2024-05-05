@@ -21,7 +21,7 @@
     };
 
     # Nix User Repository, mostly used for Firefox extentions
-    nur.url = github:nix-community/NUR;
+    nur.url = "github:nix-community/NUR";
 
     # To help with some theming but I think I could replace this 
     # TODO: remove or replace nix-colors
@@ -30,7 +30,7 @@
     # WSL support, but barely used probably will remove 
     # TODO: remove WSL support
     nixos-wsl = {
-      url = github:nix-community/NixOS-WSL;
+      url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -53,7 +53,7 @@
 
     # hyprland stuffs
     hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.39.1";
+      url = "github:hyprwm/Hyprland?ref=v0.40.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprfocus = {
@@ -62,7 +62,7 @@
     };
     hyprsplit = {
       # latest is brokey
-      url = "github:shezdy/hyprsplit?ref=v0.39.1";
+      url = "github:shezdy/hyprsplit?ref=v0.40.0";
       inputs.hyprland.follows = "hyprland";
     };
     hyprland-plugins = {
