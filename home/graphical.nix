@@ -105,5 +105,8 @@
     ffmpeg
     audacity
     kid3
+
+    # neovim graphical
+    neovide
   ];
 }
