@@ -38,7 +38,6 @@
     unzip
     fastfetch
 
-    nh
     # idk why but if i put this in home manager config it just doesn't work
     home-manager
   ];
@@ -55,14 +54,12 @@
     extraGroups = [ "networkmanager" "video" "wheel" "docker" "libvirtd" ];
   };
 
-
-  # collect my garbage
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/oakley/oakos";
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

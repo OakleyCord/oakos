@@ -81,10 +81,6 @@
     };
   };
 
-  home.sessionVariables = {
-    FLAKE = "/home/oakley/oakos";
-  };
-
   nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "22.11"; # Please read the comment before changing.
