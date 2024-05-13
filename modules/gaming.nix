@@ -20,6 +20,7 @@
         stdenv.cc.cc.lib
         libkrb5
         keyutils
+        gamescope
       ];
     };
   };
@@ -34,7 +35,7 @@
 
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    #capSysNice = true;
   };
 
   # fix gamescope on steam

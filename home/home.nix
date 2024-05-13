@@ -57,6 +57,10 @@
     '';
   };
 
+  home.shellAliases = {
+    ls = "ls --hyperlink=auto --color=auto";
+  };
+
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
