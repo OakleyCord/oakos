@@ -39,78 +39,14 @@
   --mff-urlbar-results-url-color: #98c1d9;
 }
 
-#back-button > .toolbarbutton-icon{
-  --backbutton-background: transparent !important;
-  border: none !important;
-}
-
-#back-button {
-  list-style-image: url("left-arrow.svg") !important;
-}
-
-#forward-button {
-  list-style-image: url("right-arrow.svg") !important;
-}
-
-/* Options with pixel amounts could need to be adjusted, as this only works for my laptop's display */
-#titlebar {
-  -moz-box-ordinal-group: 0 !important;
-} 
-
-.tabbrowser-tab:not([fadein]),
-#tracking-protection-icon-container, 
-#identity-box {
-  display: none !important;
-  border: none !important;
-}
 #urlbar-background, .titlebar-buttonbox-container, #nav-bar, .tabbrowser-tab:not([selected]) .tab-background{
     background: var(--uc-bg-color) !important;
-  border: none !important;
-}
-#urlbar[breakout][breakout-extend] {
-    top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
-    left: 0 !important;
-    width: 100% !important;
 }
 
-#urlbar[breakout][breakout-extend] > #urlbar-input-container {
-    height: var(--urlbar-height) !important;
-    padding-block: 0 !important;
-    padding-inline: 0 !important;
-}
-
-#urlbar[breakout][breakout-extend] > #urlbar-background {
-    animation-name: none !important;
-    box-shadow: none !important;
-}
-#urlbar-background {
-  box-shadow: none !important;
-}
-/*#tabs-newtab-button {
-  display: var(--uc-show-new-tab-button) !important;
-}*/
-.tabbrowser-tab::after {
-  border-left: var(--uc-tab-separators-width) solid var(--uc-tab-separators-color) !important;
-  display: var(--uc-show-tab-separators) !important;
-}
 .tabbrowser-tab[first-visible-tab][last-visible-tab]{
   background-color: var(--uc-bar-bg-color) !important;
 }
-.tab-close-button.close-icon {
-  display: none !important;
-}
-.tabbrowser-tab:hover .tab-close-button.close-icon {
-  display: block !important;
-}
-#urlbar-input {
-  text-align: center !important;
-}
-#urlbar-input:focus {
-  text-align: left !important;
-}
-#urlbar-container {
-  margin-left: 3vw !important;
-}
+
 .tab-text.tab-label {
   color: var(--uc-tab-fg-color) !important;
 }

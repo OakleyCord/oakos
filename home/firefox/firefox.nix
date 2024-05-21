@@ -84,9 +84,9 @@
   };
   # Theming from https://github.com/rose-pine/firefox
   home.file = {
-    ".mozilla/firefox/oakley/chrome/add.svg".source = ./theming/add.svg;
-    ".mozilla/firefox/oakley/chrome/left-arrow.svg".source = ./theming/left-arrow.svg;
-    ".mozilla/firefox/oakley/chrome/right-arrow.svg".source = ./theming/right-arrow.svg;
+#    ".mozilla/firefox/oakley/chrome/add.svg".source = ./theming/add.svg;
+#    ".mozilla/firefox/oakley/chrome/left-arrow.svg".source = ./theming/left-arrow.svg;
+#    ".mozilla/firefox/oakley/chrome/right-arrow.svg".source = ./theming/right-arrow.svg;
     ".mozilla/firefox/oakley/chrome/userColors.css".source = ./theming/userColors.css;
   };
 }
