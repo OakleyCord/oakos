@@ -3,7 +3,8 @@
   imports = [
     ../waybar/waybar.nix
     ../swaync/swaync.nix
-    inputs.anyrun.homeManagerModules.default
+    ../swaylock/swaylock.nix
+    ../anyrun/anyrun.nix
   ];
 
   home.packages = with pkgs; [
@@ -35,7 +36,7 @@
 
 
     # widgets (unused)
-    eww
+    #eww
   ];
 
   home.file = {
@@ -44,26 +45,6 @@
       recursive = true;
       executable = true;
     };
-  };
-
-  programs.anyrun = {
-    enable = true;
-    config = {
-      plugins = [
-        inputs.anyrun.packages.${pkgs.system}.applications
-      ];
-      x = { fraction = 0.5; };
-      y = { fraction = 0.3; };
-      width = { fraction = 0.3; };
-      layer = "overlay";
-      hidePluginInfo = true;
-    };
-
-    extraCss = ''
-    window {
-      background: transparent;
-    }
-    '';
   };
 
   # TODO: this whole thing is kinda a nothing burger does exactly the same without this config need to add config that fixes xdg open to this.
@@ -80,7 +61,6 @@
     ];
     #xdgOpenUsePortal = true;
   };
-  programs.swaylock.enable = true;
 
   # bluetooth :]
   services.blueman-applet.enable = true;
