@@ -41,7 +41,7 @@ in {
       displayManager.sddm = {
         enable = true;
         theme = "rose-pine";
-        wayland.enable = true;
+        wayland.enable = false;
       };
     };
     xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; };
