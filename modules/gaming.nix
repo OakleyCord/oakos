@@ -4,8 +4,13 @@
   programs.steam = {
     enable = true;
 
-    # Open ports in the firewall for Steam Remote Play
+    # Open ports in the firewall
     remotePlay.openFirewall = true;  
+    localNetworkGameTransfers.openFirewall = true;
+
+
+    protontricks.enable = true;
+    extest.enable = true;
     gamescopeSession.enable = true;
 
     package = pkgs.steam.override {
@@ -26,16 +31,44 @@
   };
 
   # security.wrappers.steam = {
+  #   setuid = true;
   #   owner = "root";
   #   group = "root";
   #   source = "${pkgs.steam}/bin/steam";
   # };
+  #
+  # security.wrappers.bwrap = {
+  #   owner = "root";
+  #   group = "root";
+  #   source = "${pkgs.bubblewrap}/bin/bwrap";
+  #   setuid = true;
+  # };
 
-  programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true;
+    enableRenice = true;
+
+    settings = {
+      general = {
+        renice = 10;
+      };
+
+      gpu = {
+        apply_gpu_optimisations = "accept-responsibility";
+        gpu_device = 0;
+        amd_performance_level = "high";
+      };
+
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+      };
+    };
+  };
 
   programs.gamescope = {
     enable = true;
-    #capSysNice = true;
+    # capSysNice = true;
   };
 
   # fix gamescope on steam
