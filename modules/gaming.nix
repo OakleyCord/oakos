@@ -44,6 +44,10 @@
   #   setuid = true;
   # };
 
+  # Fix GC Adapters
+  services.udev.extraRules = ''
+  SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="0337", MODE="0666"
+  '';
   programs.gamemode = {
     enable = true;
     enableRenice = true;
